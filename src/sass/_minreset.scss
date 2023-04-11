@@ -1,0 +1,52 @@
+*:focus {
+    outline: 1px solid $color--primary;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.16;
+    color: $color--black;
+    background-color: $color--white;
+}
+
+button,
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,47 @@
+.page-list {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-lisy__item {
+
+    &:nth-child(1),
+    &:nth-child(7) {
+        background: $color--gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.3125rem;
+    }
+}
+
+.page {
+    display: block;
+    padding: 13px;
+    color: $color--black;
+    border-radius: 0.3125rem;
+
+    &:hover,
+    &:focus {
+        color: $color--white;
+        background-color: $color--primary;
+    }
+}
+
+.page--active {
+    background-color: $color--primary;
+    color: $color--white;
+    border-radius: 0.3125rem;
+}
+
+.page-arrow {
+    height: 14px;
+    width: 14px;
+    stroke: currentColor;
+}
+
+.page-arrow--right {
+    transform: scaleX(-1);
+}
