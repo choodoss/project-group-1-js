@@ -34,6 +34,10 @@ body {
     background-color: $color--white;
 }
 
+.modal-open {
+    overflow: hidden;
+}
+
 button,
 ul,
 p,

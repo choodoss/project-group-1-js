@@ -4,12 +4,12 @@
     margin: 0 auto;
     overflow: hidden;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 480px) {
         padding: 0 32px;
         max-width: 768px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 769px) {
         max-width: 1280px;
     }
 }
