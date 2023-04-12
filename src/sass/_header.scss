@@ -247,4 +247,8 @@ header .container {
         top: 11;
         right: 16;
     }
+
+    @media screen and (min-width: 769px) {
+        top: 13;
+    }
 }
