@@ -1,15 +1,15 @@
 {
-  "name": "group-project-2-js",
+  "name": "project-group-1-js",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://choodoss.github.io/group-project-2-js",
+  "homepage": "https://choodoss.github.io/project-group-1-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /group-project-2-js/"
+    "build": "parcel build src/*.html --public-url /project-group-1-js/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/choodoss/group-project-2-js.git"
+    "url": "git+https://github.com/choodoss/project-group-1-js.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",

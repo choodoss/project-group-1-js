@@ -27,12 +27,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -30%);
     width: 90%;
     padding: 48px 20px 40px 20px;
     min-height: 800px;
 
     @media screen and (min-width: 768px) {
+        transform: translate(-50%, -35%);
         min-height: 552px;
         padding: 40px 72px 64px 36px;
     }
