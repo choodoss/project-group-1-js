@@ -28,12 +28,12 @@ export function filmCardMacker(arr) { //функція створення кар
                 genreString = genres.slice(0, 1).join(', ') + ', Other';
             }
         } else {
-            genreString = genres.length > 0 ? `${genres.join(', ')} | ` : '';
+            genreString = genres.length > 0 ? `${genres.join(', ')} ` : '';
         }
 
         //розмітка картки фільму
         return `<li class="film"> 
-    <a class="film-link" data-modal-open href="javascript:void(0)">
+    <a class="film-link" data-modal-open name-id=${item.id} href="javascript:void(0)">
         <img loading="lazy" width="280" height="398" src="https://image.tmdb.org/t/p/w400${item.poster_path}" alt="${item.title ? item.title : item.name}film cover"
             class="film__img">
             <div class="film-body">
