@@ -16,3 +16,20 @@ export function getDataFilm() {
             return res.json()
         })
 };
+
+export function getGenre(params) {
+    const parameters = new URLSearchParams({
+        api_key: API_KEY,
+        language: 'en-US',
+    });
+    const promises = params.map(param => {
+        return fetch(`${URL}${param}?${parameters}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            });
+    });
+    return Promise.all(promises);
+}
