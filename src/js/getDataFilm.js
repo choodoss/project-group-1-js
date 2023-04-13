@@ -2,13 +2,15 @@ const API_KEY = '936b81ad25b58d3805a3200306ab9278';
 const URL = "https://api.themoviedb.org/3/";
 
 
-export function getDataFilm() { //функція запиту карток фільмів за трендом
+export function getDataFilm(param, searchParam = {}) { //функція запиту карток по параметру посилання і параметру
     const parameters = new URLSearchParams({
         api_key: API_KEY,
+        language: 'en-US',
+        ...searchParam
     });
-    const trendParam = 'trending/all/day' //доп аргумент для запиту по трендам який має знаходитись у самому посиланні, неможливо додати у змінну parameters
-    console.log(`${URL}${trendParam}?${parameters}`)
-    return fetch(`${URL}${trendParam}?${parameters}`)
+
+    console.log(`${URL}${param}?${parameters}`)
+    return fetch(`${URL}${param}?${parameters}`)
         .then(res => {
             if (!res.ok) {
                 throw new Error(response.status);
@@ -21,7 +23,7 @@ export function getDataFilm() { //функція запиту карток фі�
 export function getGenre(params) { //функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
     const parameters = new URLSearchParams({
         api_key: API_KEY,
-        language: 'en-US',
+        language: 'en-US'
     });
     const promises = params.map(param => {
         return fetch(`${URL}${param}?${parameters}`)

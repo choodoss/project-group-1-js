@@ -1,16 +1,17 @@
-import { getGenre } from "./getDataFilm";
+import ApiRequest from './ApiRequest';
+import { getGenre } from './getDataFilm';
 
-const params = ['genre/tv/list', 'genre/movie/list'];//параметри для розшифровки genre (жанри фільмів, які приходять у вигляді масиву з ID жанру)
 let genreArr = [];//масиву даних genre із id і значення жанру
 
-getGenre(params).then(res => {//функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
+getGenre(ApiRequest.genre).then(res => {//функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
+    console.log(res)
     genreArr = [...res[0].genres, ...res[1].genres]
 }
-);
-
+)
 //getGenre(params) має обовязково запускатись при пешому відкритті сайту, адже без готовох бази жанрів, неможливо буде відобразити коректно розмітку!!!
 
 export function filmCardMacker(arr) { //функція створення картки фільму
+
     return arr.map(item => {
 
         const genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
