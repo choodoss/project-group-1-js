@@ -1,26 +1,37 @@
 import { getGenre } from "./getDataFilm";
 
-const params = ['genre/tv/list', 'genre/movie/list'];
-let genreArr = [];
+const params = ['genre/tv/list', 'genre/movie/list'];//параметри для розшифровки genre (жанри фільмів, які приходять у вигляді масиву з ID жанру)
+let genreArr = [];//масиву даних genre із id і значення жанру
 
-getGenre(params).then(res => {
+getGenre(params).then(res => {//функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
     genreArr = [...res[0].genres, ...res[1].genres]
-    console.log(genreArr)
 }
 );
 
-export function filmCardMacker(arr) {
+//getGenre(params) має обовязково запускатись при пешому відкритті сайту, адже без готовох бази жанрів, неможливо буде відобразити коректно розмітку!!!
+
+export function filmCardMacker(arr) { //функція створення картки фільму
     return arr.map(item => {
 
-        const genres = item.genre_ids
+        const genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
             .map(id => {
                 const genreObj = genreArr.find(obj => obj.id === id);
                 return genreObj ? genreObj.name : '';
             });
 
-        const genreString = genres.length > 0 ? `${genres.join(', ')} | ` : '';
+        let genreString;
 
-        return `<li class="film">
+        if (genres.length > 2) { //формування довжини жанру фільму
+            genreString = genres.slice(0, 2).join(', ') + ', Other';
+            if (genreString.length > 30) {
+                genreString = genres.slice(0, 1).join(', ') + ', Other';
+            }
+        } else {
+            genreString = genres.length > 0 ? `${genres.join(', ')} | ` : '';
+        }
+
+        //розмітка картки фільму
+        return `<li class="film"> 
     <a class="film-link" data-modal-open href="javascript:void(0)">
         <img loading="lazy" width="280" height="398" src="https://image.tmdb.org/t/p/w400${item.poster_path}" alt="${item.title ? item.title : item.name}film cover"
             class="film__img">
@@ -33,5 +44,3 @@ export function filmCardMacker(arr) {
     }
     ).join('')
 }
-
-//https://image.tmdb.org/t/p/w400${item.poster_path} - потрібно переробити із параметрами.

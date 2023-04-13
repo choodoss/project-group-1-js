@@ -1,14 +1,12 @@
 import { getDataFilm } from './getDataFilm';
 import { filmCardMacker } from './film-card';
 
-const filmList = document.querySelector('.films-list')
+const filmList = document.querySelector('.films-list') // галерея карток з фільмами
 
-getDataFilm().then(({ results }) => {
+getDataFilm().then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
     console.log(results)
     filmList.innerHTML = filmCardMacker(results);
     return
 })
 
-//Розіюратись із genre (жанр фільму), як його правильно відобразити!
-// https://api.themoviedb.org/3/genre/tv/list?api_key=<<api_key>>&language=en-US
 

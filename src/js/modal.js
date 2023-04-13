@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         const modal = document.querySelector("[" + element + "]");
         if (!modal) logModalError("Can`t find Modal with attribute " + modal);
 
-        // Додайте обробник подій на батьківський елемент, який містить нові елементи
+        // Додаємо обробник подій на батьківський елемент, для оновлення посилань
         const parentElement = document.body;
         parentElement.addEventListener("click", function (event) {
             const target = event.target;
