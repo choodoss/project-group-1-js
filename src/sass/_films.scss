@@ -26,6 +26,23 @@
     }
 }
 
+.film-link {
+    color: inherit;
+
+    &:hover {
+        filter: brightness(1.3);
+
+        & .film__name {
+            filter: brightness(0.6);
+            color: $color--primary;
+        }
+
+        & .film__description {
+            color: $text-color--gray;
+        }
+    }
+}
+
 .film__img {
     object-fit: cover;
     display: block;

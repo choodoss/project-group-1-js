@@ -31,3 +31,4 @@ getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) =
     return
 })
 })
+

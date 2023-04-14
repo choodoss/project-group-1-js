@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (e) {
     e.preventDefault();
-    const modals = ['data-modal'];
+    const modals = ['data-modal', 'team-modal'];
 
     modals.forEach(element => {
         const openModalSelector = element + "-open";
