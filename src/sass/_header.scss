@@ -25,20 +25,24 @@ header .container {
     background-position: center;
     background-repeat: no-repeat;
 
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(255, 152, 13, 0.9);
 
-    background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%),
+    background-image: linear-gradient(267.62deg,
+            rgba(255, 156, 46, 0) 78.46%,
+            #ffa225 97.43%),
         linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
         url(../images/bg/background_1x_320.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+        background-image: linear-gradient(267.62deg,
+                rgba(255, 156, 46, 0) 78.46%,
+                #ffa225 97.43%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
             url(../images/bg/background_2x_320.jpg);
     }
 
@@ -47,15 +51,25 @@ header .container {
         background-position: right center;
         background-size: contain;
 
-        background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(../images/bg/background_1x_1200.jpg);
+        background-image: linear-gradient(267.62deg,
+                rgba(255, 156, 46, 0) 78.46%,
+                #ffa225 97.43%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+            url(../images/bg/background_1x_1200.jpg);
 
         @media screen and (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(../images/bg/background_2x_1200.jpg);
+            background-image: linear-gradient(267.62deg,
+                    rgba(255, 156, 46, 0) 78.46%,
+                    #ffa225 97.43%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+                url(../images/bg/background_2x_1200.jpg);
         }
     }
 }
+
+.header-nav__bg--yellow {}
 
 .logo {
     position: absolute;
@@ -133,6 +147,12 @@ header .container {
         background-color: $color--white;
         padding: 10px 26px;
 
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background-color: $color--black;
+        }
+
         @media screen and (min-width: 480px) {
             padding: 12px 24px;
         }
@@ -143,9 +163,15 @@ header .container {
     }
 
     &--lib {
-        color: $color--white;
-        background-color: $color--black;
+        color: $color--black;
+        background-color: $color--white;
         padding: 10px 26px;
+
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background-color: $color--black;
+        }
 
         @media screen and (min-width: 480px) {
             padding: 12px 20px;
@@ -182,6 +208,11 @@ header .container {
             padding: 14px 24px;
         }
     }
+}
+
+.header-nav__title--active {
+    color: $color--white;
+    background-color: $color--black;
 }
 
 .header-nav__item {
@@ -252,3 +283,74 @@ header .container {
         top: 13;
     }
 }
+
+.switch-them {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    zoom: 150%;
+
+    @media screen and (min-width: 480px) {
+        top: 30%;
+        right: 30px;
+        zoom: 100%;
+    }
+}
+
+.switch-body {
+    box-shadow: 0 0 5px black;
+    border-radius: 1rem;
+    height: 120px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch-line {
+    height: 90px;
+    width: 20px;
+    background-color: rgba(243, 235, 224, 0.2);
+    box-shadow: inset 0 0 3px black;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.switch-orange,
+.switch-red,
+.switch-yellow {
+    border: 1px solid rgba(37, 37, 37, 0.3);
+    border-radius: 1rem;
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+        border: 3px solid rgba(223, 221, 219, 0.5);
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.switch-yellow {
+    background-color: #ece913;
+}
+
+.switch-red {
+    background-color: #B92F2C;
+}
+
+.switch-orange {
+    background-color: #ff9100;
+}
+
+// .switch--active {
+//     border: 2px solid #fff;
+//     background-color: #FFA225;
+//     // filter: brightness(1.3);
+//     width: 25px;
+//     height: 25px;
+// }

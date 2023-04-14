@@ -9,7 +9,6 @@ export function getDataFilm(param, searchParam = {}) { //функція запи
         ...searchParam
     });
 
-    console.log(`${URL}${param}?${parameters}`)
     return fetch(`${URL}${param}?${parameters}`)
         .then(res => {
             if (!res.ok) {
