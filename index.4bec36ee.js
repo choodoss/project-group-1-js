@@ -1,0 +1,2 @@
+const e=document.querySelector(".switch-body");document.querySelector(".header-nav"),document.querySelector("switch-line");e.addEventListener("click",(function({target:e}){if("LI"===e.tagName)switch(console.log(Object.keys(e.dataset).join("")),Object.keys(e.dataset).join("")){case"yellow":default:break;case"red":console.log("r");break;case"orange":console.log("y")}}));
+//# sourceMappingURL=index.4bec36ee.js.map
