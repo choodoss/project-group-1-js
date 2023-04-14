@@ -31,10 +31,17 @@ export function filmCardMacker(arr) { //функція створення кар
             genreString = genres.length > 0 ? `${genres.join(', ')} ` : '';
         }
 
+        let serchPoster = item.poster_path;
+        let poster = `https://image.tmdb.org/t/p/w400${serchPoster}`
+        if (serchPoster === null) {
+            poster = `./src/images/img/no-img.jpg`
+        } else {
+            poster = `https://image.tmdb.org/t/p/w400${serchPoster}`
+        }
         //розмітка картки фільму
         return `<li class="film"> 
     <a class="film-link" data-modal-open name-id=${item.id} href="javascript:void(0)">
-        <img loading="lazy" width="280" height="398" src="https://image.tmdb.org/t/p/w400${item.poster_path}" alt="${item.title ? item.title : item.name}film cover"
+        <img loading="lazy" width="280" height="398" src="${poster}" alt="${item.title ? item.title : item.name}film cover"
             class="film__img">
             <div class="film-body">
                 <p class="film__name">${item.title ? item.title : item.name}</p>
