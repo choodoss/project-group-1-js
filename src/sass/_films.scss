@@ -44,13 +44,12 @@
 }
 
 .film__img {
+    border: 5px solid #ff0303;
     object-fit: cover;
     display: block;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 10px;
-
-    object-fit: cover;
 
     @media screen and (min-width: 480px) {
         height: 455px;

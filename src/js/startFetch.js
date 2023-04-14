@@ -38,25 +38,3 @@ getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) =
     console.log('Текст був введений більше ніж 2 секунди тому.');
   }, 2000);
 }); 
-
-
-// const searchBtn = document.querySelector('.search__icon'); // посилання на кнопку для пошуку
-// console.log('searchBtn', searchBtn);
-// searchBtn.addEventListener('click', function (event) {
-//     const querySearch = inputSearchEll.value.trim();
-//     console.log('querySearch ---', querySearch, querySearch.length);
-//     if (querySearch.length === 0) {
-//        console.log("введіть текст для пошуку кінофільмів") 
-//     }
-
-// getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
-//     console.log(results)
-//      if (results.length === 0) {
-//          console.log("кінофільмів згідно вашого запиту немає") 
-//          return
-//     }
-//     filmList.innerHTML = filmCardMacker(results);
-//     return
-// })
-// })
-
