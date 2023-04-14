@@ -11,8 +11,7 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(({ results }) =>
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
 console.log('inputSearchEll----',inputSearchEll);
-// const searchBtn = document.querySelector('.search__icon'); // посилання на кнопку для пошуку
-// console.log('searchBtn', searchBtn);
+
 
 let timeoutId;
 inputSearchEll.addEventListener('input', function() {
@@ -41,6 +40,8 @@ getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) =
 }); 
 
 
+// const searchBtn = document.querySelector('.search__icon'); // посилання на кнопку для пошуку
+// console.log('searchBtn', searchBtn);
 // searchBtn.addEventListener('click', function (event) {
 //     const querySearch = inputSearchEll.value.trim();
 //     console.log('querySearch ---', querySearch, querySearch.length);
