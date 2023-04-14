@@ -4,6 +4,7 @@ const filmList = document.querySelector('.films-list') // галерея кар�
 import ApiRequest from './ApiRequest'
 
 getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
+    console.log(results)
     filmList.innerHTML = filmCardMacker(results);
     return
 })
