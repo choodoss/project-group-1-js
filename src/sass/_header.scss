@@ -25,20 +25,24 @@ header .container {
     background-position: center;
     background-repeat: no-repeat;
 
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(255, 152, 13, 0.9);
 
-    background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%),
+    background-image: linear-gradient(267.62deg,
+            rgba(255, 156, 46, 0) 78.46%,
+            #ffa225 97.43%),
         linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
         url(../images/bg/background_1x_320.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-        background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+        background-image: linear-gradient(267.62deg,
+                rgba(255, 156, 46, 0) 78.46%,
+                #ffa225 97.43%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
             url(../images/bg/background_2x_320.jpg);
     }
 
@@ -47,12 +51,20 @@ header .container {
         background-position: right center;
         background-size: contain;
 
-        background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(../images/bg/background_1x_1200.jpg);
+        background-image: linear-gradient(267.62deg,
+                rgba(255, 156, 46, 0) 78.46%,
+                #ffa225 97.43%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+            url(../images/bg/background_1x_1200.jpg);
 
         @media screen and (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            background-image: linear-gradient(267.62deg, rgba(255, 156, 46, 0) 78.46%, #FFA225 97.43%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%), url(../images/bg/background_2x_1200.jpg);
+            background-image: linear-gradient(267.62deg,
+                    rgba(255, 156, 46, 0) 78.46%,
+                    #ffa225 97.43%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
+                url(../images/bg/background_2x_1200.jpg);
         }
     }
 }
@@ -133,6 +145,12 @@ header .container {
         background-color: $color--white;
         padding: 10px 26px;
 
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background-color: $color--black;
+        }
+
         @media screen and (min-width: 480px) {
             padding: 12px 24px;
         }
@@ -143,9 +161,15 @@ header .container {
     }
 
     &--lib {
-        color: $color--white;
-        background-color: $color--black;
+        color: $color--black;
+        background-color: $color--white;
         padding: 10px 26px;
+
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background-color: $color--black;
+        }
 
         @media screen and (min-width: 480px) {
             padding: 12px 20px;
@@ -182,6 +206,11 @@ header .container {
             padding: 14px 24px;
         }
     }
+}
+
+.header-nav__title--active {
+    color: $color--white;
+    background-color: $color--black;
 }
 
 .header-nav__item {

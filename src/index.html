@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,28 +23,26 @@
             <use href="./images/svg/sprite.svg#icon-logo"></use>
           </svg></a>
         <ul class="header-nav__list-1">
-          <li class="header-nav__item header-nav__item--home"><a href="./"
-              class="header-nav__title header-nav__title--home">Home</a></li>
-          <li class="header-nav__item header-nav__item--lib"><a href="#"
-              class="header-nav__title header-nav__title--lib">My Library</a></li>
+          <li class="header-nav__item header-nav__item--home">
+            <a href="./" class="header-nav__title header-nav__title--home header-nav__title--active">Home</a>
+          </li>
+          <li class="header-nav__item header-nav__item--lib">
+            <a href="#" class="header-nav__title header-nav__title--lib">My Library</a>
+          </li>
           <li class="header-nav__item header-nav__item--input">
-            <input class="header-nav__input" type="text" placeholder="Movie Search">
+            <input class="header-nav__input" type="text" placeholder="Movie Search" />
             <svg class="search__icon" width="14" height="14">
               <use href="./images/svg/sprite.svg#icon-search"></use>
             </svg>
           </li>
         </ul>
-        <ul class="header-nav__list-2">
-          <li class="header-nav__item"><a href="#" class="header-nav__title header-nav__title--watch">Watched</a></li>
-          <li class="header-nav__item"><a href="#" class="header-nav__title header-nav__title--queue">queue</a></li>
-        </ul>
         <div class="switch-them">
           <div class="switch-body">
-            <ul class="switch-line">
-              <li class="switch-yellow" data-yellow></li>
-              <li class="switch-red" data-red></li>
-              <li class="switch-orange switch--active" data-orange></li>
-            </ul>
+            <div class="switch-line">
+              <div class="switch-yellow"></div>
+              <div class="switch-red"></div>
+              <div class="switch-orange switch--active"></div>
+            </div>
           </div>
         </div>
       </nav>
