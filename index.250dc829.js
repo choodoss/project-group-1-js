@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector(".switch-body");document.querySelector(".header-nav"),document.querySelector("switch-line");e.addEventListener("click",(function(e){var t=e.target;if("LI"===t.tagName)switch(console.log(Object.keys(t.dataset).join("")),Object.keys(t.dataset).join("")){case"yellow":default:break;case"red":console.log("r");break;case"orange":console.log("y")}}))}();
-//# sourceMappingURL=index.250dc829.js.map
