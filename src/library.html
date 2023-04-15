@@ -27,8 +27,7 @@
         <nav class="header-nav">
           <a href="./" class="logo"
             ><svg class="logo__icon" width="190" height="38">
-              <use href="./images/svg/sprite.svg#icon-logo"></use></svg
-          ></a>
+              <use href="./images/svg/sprite.svg#icon-logo"></use></svg></a>
           <ul class="header-nav__list-1">
             <li class="header-nav__item header-nav__item--home">
               <a
@@ -80,9 +79,14 @@
       </div>
     </header>
     <main>
-      <include src="./partials/films.html"></include>
-      <include src="./partials/pagenav.html"></include>
-      <include src="./partials/about-film-modal.html"></include>
+      <section class="section-library">
+        <h2 class="visually-hidden">Library</h2>
+        <div class="container-library">
+            <ul class="">
+    
+            </ul>
+        </div>
+    </section>
     </main>
     <include src="./partials/footer.html"></include>
     <script type="module" src="./js/getDataFilm.js"></script>

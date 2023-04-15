@@ -32,9 +32,9 @@ export function filmCardMacker(arr) { //функція створення кар
         }
 
         let serchPoster = item.poster_path;
-        let poster = `https://image.tmdb.org/t/p/w500${serchPoster}`
+        let poster;
         if (serchPoster === null) {
-            poster = `./src/images/img/no-img.jpg`
+            poster = `/no-img.a640d610.c4030ab6.jpg`
         } else {
             poster = `https://image.tmdb.org/t/p/w500${serchPoster}`
         }

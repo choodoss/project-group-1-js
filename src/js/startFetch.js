@@ -19,31 +19,27 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(({ results }) =>
 })
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
-console.log('inputSearchEll----',inputSearchEll);
+console.log('inputSearchEll----', inputSearchEll);
 
 
 let timeoutId;
-inputSearchEll.addEventListener('input', function() {
+inputSearchEll.addEventListener('input', function () {
   clearTimeout(timeoutId);
-  timeoutId = setTimeout(function() {
+  timeoutId = setTimeout(function () {
     // викликати функцію, яку потрібно запустити
-    // const querySearch = inputSearchEll.value.trim();
     querySearch = inputSearchEll.value.trim();
     console.log('querySearch ---', querySearch, querySearch.length);
     if (querySearch.length === 0) {
-       console.log("введіть текст для пошуку кінофільмів") 
+      console.log("введіть текст для пошуку кінофільмів")
     }
 
 getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
     console.log(results)
      if (results.length === 0) {
        console.log("кінофільмів згідно вашого запиту немає") 
-       // згідно макету портрібно вивести повідомлення:
-       // Search result not successful. Enter the correct movie name.
          return
     }
-  filmList.innerHTML = filmCardMacker(results);
-  currentCollection = "currentSearchMovieCollection";
+    filmList.innerHTML = filmCardMacker(results);
     return
 })
      

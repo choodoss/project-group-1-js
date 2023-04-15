@@ -34,7 +34,7 @@
 
         & .film__name {
             filter: brightness(0.6);
-            color: $color--primary;
+            color: var(--var-color-primary);
         }
 
         & .film__description {
@@ -44,7 +44,7 @@
 }
 
 .film__img {
-    border: 5px solid #ff0303;
+
     object-fit: cover;
     display: block;
     width: 100%;
@@ -78,5 +78,5 @@
 }
 
 .film__description {
-    color: $color--primary;
+    color: var(--var-color-primary);
 }
