@@ -1,2 +1,2 @@
 const e=document.getElementById("team-modal"),n=document.getElementById("modal"),t=document.getElementById("close-modal");function o(){document.removeEventListener("keydown",c),n.removeEventListener("click",d)}function c(e){"Escape"===e.key&&(n.style.display="none",o())}function d(e){e.target===n&&(n.style.display="none",o())}e.onclick=function(){n.style.display="block",document.addEventListener("keydown",c),n.addEventListener("click",d)},t.onclick=function(){n.style.display="none",o()};
-//# sourceMappingURL=index.bff3697b.js.map
+//# sourceMappingURL=index.a566012e.js.map
