@@ -298,7 +298,7 @@ header .container {
     height: 20px;
 
     &:hover {
-        box-shadow: -18px -9px 39px 15px rgba(0, 0, 0, 0.53);
+        box-shadow: -4px -3px 7px 3px rgba(0, 0, 0, 0.53);
         filter: contrast(1.5);
         width: 25px;
         height: 25px;
@@ -318,7 +318,7 @@ header .container {
 }
 
 .switch--active {
-    box-shadow: -18px -9px 39px 15px rgba(0, 0, 0, 0.53);
+    box-shadow: -4px -3px 7px 3px rgba(0, 0, 0, 0.53);
     width: 25px;
     height: 25px;
 }
