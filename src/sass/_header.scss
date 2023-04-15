@@ -363,10 +363,9 @@ header .container {
     background-color: #ff9100;
 }
 
-// .switch--active {
-//     border: 2px solid #fff;
-//     background-color: #FFA225;
-//     // filter: brightness(1.3);
-//     width: 25px;
-//     height: 25px;
-// }
+.switch--active {
+    border: 2px solid #fff;
+    background-color: #FFA225;
+    width: 25px;
+    height: 25px;
+}
