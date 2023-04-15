@@ -1,0 +1,2 @@
+document.addEventListener("DOMContentLoaded",(function(t){t.preventDefault(),["data-modal"].forEach((function(t){var e,o,n=t+"-open",c=t+"-close",d=document.querySelector("["+t+"]");function a(){document.body.classList.toggle("modal-open"),d.classList.toggle("is-hidden")}d||(e="Can`t find Modal with attribute "+d,o="color: #BADA55",console.log("%c"+e,o)),document.body.addEventListener("click",(function(t){var e=t.target,o=e.closest("["+n+"]"),d=e.closest("["+c+"]");(o||d)&&a()}))}))}),!1);
+//# sourceMappingURL=library.3ee80936.js.map
