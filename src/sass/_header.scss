@@ -90,6 +90,15 @@ header .container {
     display: flex;
     justify-content: center;
     column-gap: 4px;
+
+    @media screen and (min-width: 480px) {
+        margin-top: 40px;
+    }
+
+    @media screen and (min-width: 769px) {
+        margin-top: 40px;
+        column-gap: 30px;
+    }
 }
 
 .header-nav__title {
@@ -143,6 +152,7 @@ header .container {
         background: $color--white;
         color: var(--var-color-primary);
         box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
+        margin-bottom: 10px;
 
         &:hover,
         &:focus {
@@ -152,6 +162,7 @@ header .container {
 
         @media screen and (min-width: 480px) {
             padding: 12px 22px;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 769px) {
@@ -161,6 +172,7 @@ header .container {
 
     &--queue {
         background: $color--white;
+        margin-bottom: 10px;
         color: var(--var-color-primary);
 
         &:hover,
@@ -171,10 +183,11 @@ header .container {
 
         @media screen and (min-width: 480px) {
             padding: 12px 22px;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 769px) {
-            padding: 14px 24px;
+            padding: 14px 32px;
         }
     }
 }
