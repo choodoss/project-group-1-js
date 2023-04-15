@@ -39,7 +39,8 @@ getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) =
        console.log("кінофільмів згідно вашого запиту немає") 
          return
     }
-    filmList.innerHTML = filmCardMacker(results);
+  filmList.innerHTML = filmCardMacker(results);
+   currentCollection = "currentSearchMovieCollection";
     return
 })
      
