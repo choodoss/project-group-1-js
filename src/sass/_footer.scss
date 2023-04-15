@@ -53,7 +53,7 @@
         transition: $transition-color;
 
         &:hover {
-            color: $color--primary;
+            color: var(--var-color-primary);
         }
     }
 }

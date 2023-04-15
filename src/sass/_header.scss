@@ -188,13 +188,13 @@ header .container {
 
     &--watch {
         background: $color--white;
-        color: $color--primary;
+        color: var(--var-color-primary);
         box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
 
         &:hover,
         &:focus {
             color: $color--white;
-            background: $color--primary;
+            background: var(--var-color-primary);
         }
 
         @media screen and (min-width: 480px) {
@@ -208,12 +208,12 @@ header .container {
 
     &--queue {
         background: $color--white;
-        color: $color--primary;
+        color: var(--var-color-primary);
 
         &:hover,
         &:focus {
             color: $color--white;
-            background: $color--primary;
+            background: var(--var-color-primary);
         }
 
         @media screen and (min-width: 480px) {
