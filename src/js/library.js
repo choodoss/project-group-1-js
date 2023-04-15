@@ -13,7 +13,7 @@ function toggleEmptyLibrary() {
       emptyLibrary.classList.remove('is-hidden');
       filmListContainer.classList.add('is-hidden'); 
       Report.info('OOOOOOOOPS',
-'"There is no movies here yet" <br/>',
+'"There is no movies here yet"',
 'Okay');
     } else {
       emptyLibrary.classList.add('is-hidden'); 
