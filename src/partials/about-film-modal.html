@@ -2,12 +2,11 @@
     <div class="modal-body">
         <button type="button" class="close-btn" data-modal-close>
             <svg class="close__icon" height="30" width="30">
-                <use href="./images/svg/sprite.svg#icon-close">
-                </use>
+                <use href="./images/svg/sprite.svg#icon-close"></use>
             </svg>
         </button>
         <div class="about-film">
-            <img class="about-film__img" src="./images/img/Rectangle 18.jpg" alt="film title">
+            <img class="about-film__img" src="./images/img/Rectangle 18.jpg" alt="film title" />
             <div class="about-film__body">
                 <h3 class="film__title">A FISTFUL OF LEAD</h3>
                 <div class="film-atributes">
@@ -27,7 +26,8 @@
                     </ul>
                     <ul class="film-value">
                         <li class="film-value__item">
-                            <p class="value"><span class="value--red">7.3</span><span class="value--gray"> / </span>
+                            <p class="value">
+                                <span class="value--red">7.3</span><span class="value--gray"> / </span>
                                 <span class="value--gray-bg">1260</span>
                             </p>
                         </li>
@@ -44,23 +44,26 @@
                 </div>
                 <div class="about-film__description">
                     <h4 class="description__title">About</h4>
-                    <p class="description">Four of the West’s most infamous outlaws assemble to steal a huge stash of
-                        gold
-                        from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed
-                        and
-                        the other three escapes with bags of gold hide out in the abandoned gold mine where they happen
-                        across another gang of three – who themselves were planning to hit the very same bank! As
-                        tensions
-                        rise, things go from bad to worse as they realise the bags of gold are filled with lead...
-                        they’ve
-                        been double crossed – but by who and how?</p>
+                    <p class="description">
+                        Four of the West’s most infamous outlaws assemble to steal a huge
+                        stash of gold from the most corrupt settlement of the gold rush
+                        towns. But not all goes to plan one is killed and the other three
+                        escapes with bags of gold hide out in the abandoned gold mine where
+                        they happen across another gang of three – who themselves were
+                        planning to hit the very same bank! As tensions rise, things go from
+                        bad to worse as they realise the bags of gold are filled with
+                        lead... they’ve been double crossed – but by who and how?
+                    </p>
                 </div>
-                <div class="button__wraper">
-                    <button class="add-to-watched" type="button">add to Watched</button>
-                    <button class="add-to-queue" type="button">add to queue</button>
+                <div class="button__wraper" id="buttonWrapper">
+                    <button class="add-to-watched" type="button" id="btn" data-value="add">
+                        add to Watched
+                    </button>
+                    <button class="add-to-queue" type="button" id="btn" data-value="add">
+                        add to queue
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
