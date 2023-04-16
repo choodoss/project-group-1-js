@@ -4,7 +4,7 @@ const lineBg = document.querySelector('.switch-line');
 const root = document.documentElement;
 
 const switchItems = lineBg.children;
-console.log(localStorage.getItem('theme'))
+
 if (!localStorage.getItem('theme')) {
     orangeTheme()
 } else {

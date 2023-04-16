@@ -20,8 +20,9 @@ export function filmCardMacker(arr) { //функція створення кар
                 return genreObj ? genreObj.name : '';
             });
 
-        let genreString;
+        const genresAllforfilmAbout = genres.join(', ');
 
+        let genreString;
         if (genres.length > 2) { //формування довжини жанру фільму
             genreString = genres.slice(0, 2).join(', ') + ', Other';
             if (genreString.length > 30) {
@@ -38,10 +39,11 @@ export function filmCardMacker(arr) { //функція створення кар
         } else {
             poster = `https://image.tmdb.org/t/p/w500${serchPoster}`
         }
-        //розмітка картки фільму
+        //розмітка картки фільму original_title
+
         return `<li class="film"> 
-    <a class="film-link" data-modal-open name-id=${item.id} href="javascript:void(0)">
-        <img loading="lazy" width="280" height="398" src="${poster}" alt="${item.title ? item.title : item.name}film cover"
+    <a class="film-link" data-modal-open href="javascript:void(0)">
+        <img loading="lazy" data-id=${item.id} data-poster=${poster} data-genres="${genresAllforfilmAbout}" data-title="${item.title ? item.title : item.name}" data-original="${item.original_title}" data-popularity=${item.popularity} data-average=${item.vote_average} data-count=${item.vote_count} width="280"  height="398" src="${poster}" alt="${item.title ? item.title : item.name}film cover"
             class="film__img">
             <div class="film-body">
                 <p class="film__name">${item.title ? item.title : item.name}</p>

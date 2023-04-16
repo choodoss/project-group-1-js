@@ -1,3 +1,5 @@
+import { cardFilmMacker } from './about-film-modal'
+
 document.addEventListener('DOMContentLoaded', function (e) {
   e.preventDefault();
   const modals = ['data-modal', 'team-modal'];
@@ -15,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
       const openModalBtn = target.closest("[" + openModalSelector + "]");
       const closeModalBtn = target.closest("[" + closeModalSelector + "]");
       if (openModalBtn) {
+        if (target.className === 'film__img') {
+          cardFilmMacker(target.dataset)
+        }
         toggleModal();
       } else if (closeModalBtn) {
         toggleModal();
