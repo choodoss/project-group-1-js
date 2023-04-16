@@ -8,7 +8,7 @@ export function getDataFilm(param, searchParam = {}) { //функція запи
         language: 'en-US',
         ...searchParam
     });
-    console.log(`${URL}${param}?${parameters}`);
+
     return fetch(`${URL}${param}?${parameters}`)
         .then(res => {
             if (!res.ok) {

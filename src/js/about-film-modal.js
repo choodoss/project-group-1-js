@@ -5,7 +5,6 @@ export function cardFilmMacker({ id, poster, genres, title, original, popularity
     const filmcard = document.querySelector('.about-film');
     getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' })
         .then(({ overview }) => {
-            console.log(overview)
             filmcard.innerHTML = `<img class="about-film__img" src="${poster}" />
             <div class="about-film__body">
                 <h3 class="film__title">${title}</h3>
