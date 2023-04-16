@@ -99,6 +99,10 @@ header .container {
         margin-top: 40px;
         column-gap: 30px;
     }
+
+    &.is-hidden {
+        display: none;
+    }
 }
 
 .header-nav__title {
@@ -263,6 +267,12 @@ header .container {
 
     @media screen and (min-width: 769px) {
         top: 13;
+    }
+}
+
+.header-nav__item--input {
+    &.is-hidden {
+        display: none;
     }
 }
 

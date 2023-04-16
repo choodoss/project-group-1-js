@@ -27,13 +27,22 @@
             <a href="./" class="header-nav__title header-nav__title--home header-nav__title--active">Home</a>
           </li>
           <li class="header-nav__item header-nav__item--lib">
-            <a href="./library.html" class="header-nav__title header-nav__title--lib">My Library</a>
+            <a href="#" class="header-nav__title header-nav__title--lib">My Library</a>
           </li>
           <li class="header-nav__item header-nav__item--input">
             <input class="header-nav__input" type="text" placeholder="Movie Search" />
             <svg class="search__icon" width="14" height="14">
               <use href="./images/svg/sprite.svg#icon-search"></use>
             </svg>
+          </li>
+        </ul>
+        </ul>
+        <ul class="header-nav__list-2 is-hidden">
+          <li class="header-nav__item">
+            <button type="button" class="header-nav__title header-nav__title--watch button--watched">Watched</button>
+          </li>
+          <li class="header-nav__item">
+            <button type="button" class="header-nav__title header-nav__title--queue button--queue">queue</button>
           </li>
         </ul>
         <div class="switch-them">
@@ -75,6 +84,7 @@
   <include src="./partials/footer.html"></include>
   <script type="module" src="./js/getDataFilm.js"></script>
   <script type="module" src="./js/film-card.js"></script>
+  <script type="module" src="./js/library.js"></script>
   <script type="module" src="./js/startFetch.js"></script>
   <script type="module" src="./js/modal.js"></script>
   <script type="module" src="./js/spinner.js"></script>
