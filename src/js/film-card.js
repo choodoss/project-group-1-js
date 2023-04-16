@@ -1,47 +1,57 @@
 import ApiRequest from './ApiRequest';
 import { getGenre } from './getDataFilm';
 
-let genreArr = [];//масиву даних genre із id і значення жанру
+let genreArr = []; //масиву даних genre із id і значення жанру
 
-getGenre(ApiRequest.genre).then(res => {//функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
-    console.log(res)
-    genreArr = [...res[0].genres, ...res[1].genres]
-}
-)
+getGenre(ApiRequest.genre).then(res => {
+  //функція запиту genre і створення эдиного масиву даних genre із id і значення жанру
+  console.log(res);
+  genreArr = [...res[0].genres, ...res[1].genres];
+});
 //getGenre(params) має обовязково запускатись при пешому відкритті сайту, адже без готовох бази жанрів, неможливо буде відобразити коректно розмітку!!!
 
-export function filmCardMacker(arr) { //функція створення картки фільму
+export function filmCardMacker(arr) {
+  //функція створення картки фільму
 
-    return arr.map(item => {
+  return arr
+    .map(item => {
+      const genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
+        .map(id => {
+          const genreObj = genreArr.find(obj => obj.id === id);
+          return genreObj ? genreObj.name : '';
+        });
 
-        const genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
-            .map(id => {
-                const genreObj = genreArr.find(obj => obj.id === id);
-                return genreObj ? genreObj.name : '';
-            });
+      let genreString;
 
-        let genreString;
-
-        if (genres.length > 2) { //формування довжини жанру фільму
-            genreString = genres.slice(0, 2).join(', ') + ', Other';
-            if (genreString.length > 30) {
-                genreString = genres.slice(0, 1).join(', ') + ', Other';
-            }
-        } else {
-            genreString = genres.length > 0 ? `${genres.join(', ')} ` : '';
+      if (genres.length > 2) {
+        //формування довжини жанру фільму
+        genreString = genres.slice(0, 2).join(', ') + ', Other';
+        if (genreString.length > 30) {
+          genreString = genres.slice(0, 1).join(', ') + ', Other';
         }
+      } else {
+        genreString = genres.length > 0 ? `${genres.join(', ')} ` : '';
+      }
 
-        //розмітка картки фільму
-        return `<li class="film"> 
-    <a class="film-link" data-modal-open name-id=${item.id} href="javascript:void(0)">
-        <img loading="lazy" width="280" height="398" src="https://image.tmdb.org/t/p/w400${item.poster_path}" alt="${item.title ? item.title : item.name}film cover"
+      //розмітка картки фільму
+      return `<li class="film"> 
+    <a class="film-link" data-modal-open name-id=${
+      item.id
+    } href="javascript:void(0)">
+        <img data-id=${
+          item.id
+        } loading="lazy" width="280" height="398" src="https://image.tmdb.org/t/p/w400${
+        item.poster_path
+      }" alt="${item.title ? item.title : item.name}film cover"
             class="film__img">
             <div class="film-body">
                 <p class="film__name">${item.title ? item.title : item.name}</p>
-                <p class="film__description">${genreString} | ${item.release_date ? item.release_date.slice(0, 4) : 'TBD'}</p>
+                <p class="film__description">${genreString} | ${
+        item.release_date ? item.release_date.slice(0, 4) : 'TBD'
+      }</p>
             </div>
     </a>
-</li>`
-    }
-    ).join('')
+</li>`;
+    })
+    .join('');
 }
