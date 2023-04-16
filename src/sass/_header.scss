@@ -21,52 +21,9 @@ header .container {
     height: 100%;
     border-radius: 10px;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(255, 152, 13, 0.9);
-
-    background-image: linear-gradient(267.62deg,
-            rgba(255, 156, 46, 0) 78.46%,
-            #ffa225 97.43%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
-        url(../images/bg/background_1x_320.jpg);
-
-    @media screen and (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-        background-image: linear-gradient(267.62deg,
-                rgba(255, 156, 46, 0) 78.46%,
-                #ffa225 97.43%),
-            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
-            url(../images/bg/background_2x_320.jpg);
-    }
-
-    @media screen and (min-width: 480px) {
-        flex-direction: row;
-        background-position: right center;
-        background-size: contain;
-
-        background-image: linear-gradient(267.62deg,
-                rgba(255, 156, 46, 0) 78.46%,
-                #ffa225 97.43%),
-            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
-            url(../images/bg/background_1x_1200.jpg);
-
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: linear-gradient(267.62deg,
-                    rgba(255, 156, 46, 0) 78.46%,
-                    #ffa225 97.43%),
-                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 65.37%),
-                url(../images/bg/background_2x_1200.jpg);
-        }
-    }
 }
 
 .header-nav__bg--yellow {}
@@ -133,6 +90,15 @@ header .container {
     display: flex;
     justify-content: center;
     column-gap: 4px;
+
+    @media screen and (min-width: 480px) {
+        margin-top: 40px;
+    }
+
+    @media screen and (min-width: 769px) {
+        margin-top: 40px;
+        column-gap: 30px;
+    }
 }
 
 .header-nav__title {
@@ -183,12 +149,20 @@ header .container {
     }
 
     &--watch {
-        color: $color--white;
-        background: $color--primary;
+        background: $color--white;
+        color: var(--var-color-primary);
         box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
+        margin-bottom: 10px;
+
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background: var(--var-color-primary);
+        }
 
         @media screen and (min-width: 480px) {
             padding: 12px 22px;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 769px) {
@@ -198,14 +172,22 @@ header .container {
 
     &--queue {
         background: $color--white;
-        color: $color--primary;
+        margin-bottom: 10px;
+        color: var(--var-color-primary);
+
+        &:hover,
+        &:focus {
+            color: $color--white;
+            background: var(--var-color-primary);
+        }
 
         @media screen and (min-width: 480px) {
             padding: 12px 22px;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 769px) {
-            padding: 14px 24px;
+            padding: 14px 32px;
         }
     }
 }
@@ -329,7 +311,8 @@ header .container {
     height: 20px;
 
     &:hover {
-        border: 3px solid rgba(223, 221, 219, 0.5);
+        box-shadow: -4px -3px 7px 3px rgba(0, 0, 0, 0.53);
+        filter: contrast(1.5);
         width: 25px;
         height: 25px;
     }
@@ -347,11 +330,8 @@ header .container {
     background-color: #ff9100;
 }
 
-// .switch--active {
-//     border: 2px solid #fff;
-//     background-color: #FFA225;
-//     // filter: brightness(1.3);
-//     width: 25px;
-//     height: 25px;
-// }
-
+.switch--active {
+    box-shadow: -4px -3px 7px 3px rgba(0, 0, 0, 0.53);
+    width: 25px;
+    height: 25px;
+}
