@@ -5,7 +5,7 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     const filmcard = document.querySelector('.about-film');
 
     try {
-        const details = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
+        const { overview } = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
         const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
         const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
 
@@ -48,7 +48,7 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
         </div>
         <div class="about-film__description">
           <h4 class="description__title">About</h4>
-          <p class="description">${details.overview}</p>
+          <p class="description">${overview}</p>
         </div>
         <div class="youtube-container">
           <a href="${trailer}" class="youtube-link tube" data-modal-close>Trailer</a>

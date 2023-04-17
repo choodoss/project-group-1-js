@@ -44,7 +44,8 @@ inputSearchEll.addEventListener('input', function () {
         console.log(results);
         if (results.length === 0) {
           clearTimeout(timeoutId)
-          return Notify.info('кінофільмів згідно вашого запиту немає');
+          messageErrorEll.classList.remove("visually-hidden");
+          return;
         }
         filmList.innerHTML = filmCardMacker(results);
         currentCollection = 'currentSearchMovieCollection';
