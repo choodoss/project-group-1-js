@@ -3,6 +3,8 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 import { Notify } from 'notiflix';
+import btn from './modal'
+
 
 // currentCollection:
 // Назва колекції за ключовим словом - currentSearchMovieCollection
@@ -96,3 +98,5 @@ activePagePaginationEll.addEventListener('click', function (e) {
       break;
   }
 });
+
+

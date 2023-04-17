@@ -2,14 +2,14 @@ import { getDataFilm } from './getDataFilm';
 import ApiRequest from './ApiRequest';
 
 export async function cardFilmMacker({ id, poster, genres, title, original, popularity, average, count }) {
-    const filmcard = document.querySelector('.about-film');
+  const filmcard = document.querySelector('.about-film');
 
-    try {
-        const { overview } = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
-        const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
-        const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
+  try {
+    const { overview } = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
+    const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
+    const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
 
-        filmcard.innerHTML = `
+    filmcard.innerHTML = `
       <img class="about-film__img" src="${poster}" />
       <div class="about-film__body">
         <h3 class="film__title">${title}</h3>
@@ -54,11 +54,28 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
           <a href="${trailer}" class="youtube-link tube" data-modal-close>Trailer</a>
         </div>
         <div class="button__wraper" id="buttonWrapper">
-          <button class="add-to-watched" type="button" id="btn" data-value="add">
+          <button class="add-to-watched" type="button" id="btn-watched" data-value="add">
             add to Watched
           </button>
-          <button class="add-to-queue" type="button" id="btn" data-value="add">
+          <button class="add-to-queue" type="button" id="btn-queue" data-value="add">
             add to queue
                     </button>
                 </div>
-            </div>`}}
+            </div>`
+    const watchedBtn = document.querySelector('#btn-watched');
+    const queueBtn = document.querySelector('#btn-queue');
+    console.log(watchedBtn)
+    watchedBtn.addEventListener('click', hendleWatchedBtn);
+    queueBtn.addEventListener('click', hendleQueueBtnwatchedBtn);
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+function hendleWatchedBtn(e) {
+  console.log(e.target)
+}
+
+function hendleQueueBtnwatchedBtn(e) {
+  console.log(e.target)
+}
