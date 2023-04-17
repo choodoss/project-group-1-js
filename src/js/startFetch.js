@@ -3,6 +3,7 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list') // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 
+
 // currentCollection:
 // Назва колекції за ключовим словом - currentSearchMovieCollection
 // або
@@ -20,6 +21,7 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(({ results }) =>
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
 console.log('inputSearchEll----', inputSearchEll);
+const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
 
 
 let timeoutId;
@@ -31,16 +33,20 @@ inputSearchEll.addEventListener('input', function () {
     console.log('querySearch ---', querySearch, querySearch.length);
     if (querySearch.length === 0) {
       console.log("введіть текст для пошуку кінофільмів")
+       messageErrorEll.classList.add("visually-hidden")
+      return
     }
 
 getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
     console.log(results)
      if (results.length === 0) {
-       console.log("кінофільмів згідно вашого запиту немає") 
-         return
+       console.log("кінофільмів згідно вашого запиту немає");
+       messageErrorEll.classList.remove("visually-hidden")
+       return
     }
   filmList.innerHTML = filmCardMacker(results);
-   currentCollection = "currentSearchMovieCollection";
+  currentCollection = "currentSearchMovieCollection";
+   messageErrorEll.classList.add("visually-hidden")
     return
 })
      
@@ -58,7 +64,7 @@ activePageCollection = Number(activePagePaginationEll.textContent);
 console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   switch (currentCollection) {
     case "topFilmsCollection":
       getDataFilm(ApiRequest.popularFilm, { language: 'en-US', page: activePageCollection  }).then(({ results }) => {// запит по трендам + запит на вставку карток у films-list
