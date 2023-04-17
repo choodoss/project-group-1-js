@@ -54,9 +54,19 @@
 
         &:hover {
             color: var(--var-color-primary);
+              
+              
         }
     }
 }
+
+.description__link {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .description__link:hover {
+    transform: scale(1.1);
+  }
 
 .description__icon {
     width: 14px;
