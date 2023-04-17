@@ -347,13 +347,35 @@ header .container {
 }
 
 .header-error {
-margin-top: 8px;
-    margin-left: 16px;
-    max-width: 1280px;
-   width: 155px;
-font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    color: $color--white;
+    max-width: 480px;
+    margin-top: 8px;
     
+
+    @media screen and (min-width: 480px) {
+            max-width: 768px;
+        }
+    
+    @media screen and (min-width: 769px) {
+            max-width: 1280px;
+        }
+
+    
+}
+.header-error-text{
+    padding-left: 14px;
+    width: 170px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    color: $color--white;
+    @media screen and (min-width: 480px) {
+        width: 150px;
+        padding-left: 16px;
+        }
+    @media screen and (min-width: 769px) {
+        width: 170px;
+        padding-left: 14px;
+        }
+   
+
 }
