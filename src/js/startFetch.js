@@ -65,7 +65,6 @@ activePageCollection = Number(activePagePaginationEll.textContent);
 console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
-  // e.preventDefault();
   switch (currentCollection) {
     case 'topFilmsCollection':
       getDataFilm(ApiRequest.popularFilm, {

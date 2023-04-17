@@ -217,3 +217,16 @@
     background-color: $color--white;
     color: var(--var-color-primary);
 }
+
+.youtube-container {}
+
+.youtube-link {
+    display: block;
+    padding: 10px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+    color: $color--black;
+    background-color: $color--white;
+
+}

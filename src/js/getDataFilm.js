@@ -17,3 +17,28 @@ export function getDataFilm(param, searchParam = {}) { //функція запи
             return res.json()
         })
 };
+
+export async function getDataFilmTrailer(param, searchParam = {}) { //функція запиту карток по параметру посилання і параметру
+    const parameters = new URLSearchParams({
+        api_key: API_KEY,
+        language: 'en-US',
+        ...searchParam
+    });
+
+    return fetch(`${URL}${param}?${parameters}`)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(response.status);
+            }
+            return res.json()
+        })
+};
+
+export async function fetchTrailer(id) {
+    const trailerUrl = `${BASE_URL}movie/${id}/videos?api_key=${API_KEY}`;
+    const response = await fetch(trailerUrl);
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
+    return await response.json();
+}

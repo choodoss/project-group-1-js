@@ -1,5 +1,3 @@
-import ApiRequest from './ApiRequest';
-
 let genreArr = [
     { id: 10759, name: 'Action & Adventure' },
     { id: 16, name: 'Animation' },
