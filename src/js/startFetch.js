@@ -3,6 +3,7 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 
+
 // currentCollection:
 // Назва колекції за ключовим словом - currentSearchMovieCollection
 // або
@@ -21,8 +22,11 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(
   }
 );
 
+getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(arr => console.log(res));
+
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
 console.log('inputSearchEll----', inputSearchEll);
+const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
 
 let timeoutId;
 inputSearchEll.addEventListener('input', function () {
@@ -62,7 +66,7 @@ activePageCollection = Number(activePagePaginationEll.textContent);
 console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   switch (currentCollection) {
     case 'topFilmsCollection':
       getDataFilm(ApiRequest.popularFilm, {
@@ -71,6 +75,7 @@ activePagePaginationEll.addEventListener('click', function (e) {
       }).then(({ results }) => {
         // запит по трендам + запит на вставку карток у films-list
         console.log(results);
+
         filmList.innerHTML = filmCardMacker(results);
         return;
       });

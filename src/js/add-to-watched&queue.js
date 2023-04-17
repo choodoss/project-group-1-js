@@ -1,16 +1,19 @@
 import { load, save } from './localStorageAPI';
 import { filmCardMacker } from './film-card';
 
-const refs = {
-    btnWatched: document.querySelector('.button--watched'),
-    btnQueue: document.querySelector('.button--queue'),
-    addToWatchedBtn: document.querySelector('.add-to-watched'),
-    addToQueueBtn: document.querySelector('.add-to-queue'),
-    pagination: document.querySelector('.page-list'),
-    moviesEl: document.querySelector('.films-list'),
-    btnWrapper: document.querySelector('#buttonWrapper'),
-    watchedQueueBtnList: document.querySelector('.header-nav__list-2'),
-};
+document.addEventListener('DOMContentLoaded', function (e) {
+    const refs = {
+        btnWatched: document.querySelector('.button--watched'),
+        btnQueue: document.querySelector('.button--queue'),
+        addToWatchedBtn: document.querySelector('.add-to-watched'),
+        addToQueueBtn: document.querySelector('.add-to-queue'),
+        pagination: document.querySelector('.page-list'),
+        moviesEl: document.querySelector('.films-list'),
+        btnWrapper: document.querySelector('#buttonWrapper'),
+        watchedQueueBtnList: document.querySelector('.header-nav__list-2'),
+    };
+
+})
 
 const localStorageKeys = {
     WATCHED: 'watched',
