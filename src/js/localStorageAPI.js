@@ -1,4 +1,4 @@
-export const localStorageAPI = {
+export {
     save,
     load,
 };
