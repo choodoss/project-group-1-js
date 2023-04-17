@@ -1,6 +1,14 @@
 import { getDataFilm } from './getDataFilm';
 import ApiRequest from './ApiRequest';
 
+let watchedBtn;
+let queueBtn;
+
+if (!localStorage.getItem("watchedID")) {
+  localStorage.setItem(("watchedID"), JSON.stringify([1]))
+}
+
+
 export async function cardFilmMacker({ id, poster, genres, title, original, popularity, average, count }) {
   const filmcard = document.querySelector('.about-film');
 
@@ -9,6 +17,12 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
     const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
 
+    const localStorageData = JSON.parse(localStorage.getItem("watchedID"))
+    let watchedTextBt;
+    if (localStorageData.includes(id)) {
+      watchedTextBt = 'remove at Watched';
+    }
+    console.log(watchedTextBt)
     filmcard.innerHTML = `
       <img class="about-film__img" src="${poster}" />
       <div class="about-film__body">
@@ -54,28 +68,58 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
           <a href="${trailer}" class="youtube-link tube" data-modal-close>Trailer</a>
         </div>
         <div class="button__wraper" id="buttonWrapper">
-          <button class="add-to-watched" type="button" id="btn-watched" data-value="add">
-            add to Watched
+          <button data-id=${id} class="add-to-watched type="button" ${watchedTextBt ? `data-value="add"` : `data-value="no"`} id="btn-watched" >
+            ${watchedTextBt ? watchedTextBt : 'add to Watched'}
           </button>
-          <button class="add-to-queue" type="button" id="btn-queue" data-value="add">
+          <button class="add-to-queue" data-id=${id} type="button" id="btn-queue" data-value="add">
             add to queue
                     </button>
                 </div>
             </div>`
-    const watchedBtn = document.querySelector('#btn-watched');
-    const queueBtn = document.querySelector('#btn-queue');
-    console.log(watchedBtn)
+    watchedBtn = document.querySelector('#btn-watched');
+    queueBtn = document.querySelector('#btn-queue');
     watchedBtn.addEventListener('click', hendleWatchedBtn);
-    queueBtn.addEventListener('click', hendleQueueBtnwatchedBtn);
+    queueBtn.addEventListener('click', hendleQueueBtn);
   } catch (error) {
     console.log(error)
   }
 }
 
-function hendleWatchedBtn(e) {
-  console.log(e.target)
+
+function hendleWatchedBtn({ target }) {
+
+  const add = "add"
+  const no = "no"
+  const id = target.dataset.id;
+  console.log(target.dataset.value)
+  if (target.dataset.value === add) {
+    console.log('if')
+    const arrWithOutId = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== id);
+    localStorage.setItem(("watchedID"), JSON.stringify(arrWithOutId));
+    console.log(arrWithOutId);
+    target.textContent = 'add to Watched';
+    target.dataset.value = 'no';
+    console.log(JSON.parse(localStorage.getItem("watchedID")))
+  } else {
+    console.log('else')
+    let arrAllId = [];
+    JSON.parse(localStorage.getItem("watchedID")).map(i => arrAllId.push(i));
+    arrAllId.push(id);
+    localStorage.setItem(("watchedID"), JSON.stringify(arrAllId));
+    target.textContent = 'remove at Watched';
+    target.dataset.value = 'add';
+    console.log(arrAllId);
+  }
 }
 
-function hendleQueueBtnwatchedBtn(e) {
+
+//перевірка фільму по ІД через масив даних, тимчасово буде на колахості.
+//додавання класу
+//текст контент 
+//первірка до мейкапу і +перевірка коли вона зміналася через іннер текст
+//додати у масив даних
+
+
+function hendleQueueBtn(e) {
   console.log(e.target)
 }

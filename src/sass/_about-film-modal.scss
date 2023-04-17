@@ -199,24 +199,34 @@
     }
 }
 
-.add-to-watched {
+.add-to-watched,
+.add-to-queue {
     padding: 10px 12px;
     font-weight: inherit;
     text-transform: uppercase;
-    background-color: var(--var-color-primary);
+    background-color: $color--white;
     border-radius: 6.25rem;
+    border: 1px solid #000000;
     color: $color--white;
+    color: var(--var-color-primary);
+
+    &:hover {
+        background-color: var(--var-color-primary);
+        color: $color--white;
+        border: none;
+        padding: 11px 13px;
+    }
 }
 
-.add-to-queue {
-    padding: 9px 13px;
-    font-weight: inherit;
-    text-transform: uppercase;
-    border: 1px solid #000000;
-    border-radius: 6.25rem;
-    background-color: $color--white;
-    color: var(--var-color-primary);
+.add-to-active {
+    background-color: var(--var-color-primary);
+    color: $color--white;
+    border: none;
+    padding: 11px 13px;
 }
+
+
+
 
 .youtube-container {}
 
