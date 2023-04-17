@@ -4,8 +4,7 @@
     right: 30px;
     width: 50px;
     height: 50px;
-    background-color: #FF980D;
-    border: 3px solid #ff0303;
+    background-color: var(--var-color-primary);
 
     cursor: pointer;
     border-radius: 50%;
@@ -17,6 +16,13 @@
     transition: 0.5s;
     z-index: 999;
     pointer-events: none;
+
+    &:hover {
+        border: 1px solid #000;
+        color: var(--var-color-primary);
+        background-color: #fff;
+        scale: 1.2;
+    }
 }
 
 .active {
@@ -26,11 +32,7 @@
     z-index: 999;
     pointer-events: none;
     pointer-events: all;
-}
-
-.upward:hover {
-    background-color: rgb(255, 85, 0);
-    scale: 1.2;
+    color: #fff;
 }
 
 .arrow {
@@ -38,7 +40,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    fill: #ff0303;
+    fill: currentColor;
     ;
     // fill: #ffffff;
 }

@@ -2,7 +2,7 @@ import { getDataFilm } from './getDataFilm';
 import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
-
+import { Notify } from 'notiflix';
 
 // currentCollection:
 // Назва колекції за ключовим словом - currentSearchMovieCollection
@@ -22,8 +22,6 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(
   }
 );
 
-getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(arr => console.log(res));
-
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
 console.log('inputSearchEll----', inputSearchEll);
 const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
@@ -36,7 +34,8 @@ inputSearchEll.addEventListener('input', function () {
     querySearch = inputSearchEll.value.trim();
     console.log('querySearch ---', querySearch, querySearch.length);
     if (querySearch.length === 0) {
-      console.log('введіть текст для пошуку кінофільмів');
+      clearTimeout(timeoutId);
+      return Notify.info('введіть текст для пошуку кінофільмів');
     }
 
     getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(
@@ -44,8 +43,8 @@ inputSearchEll.addEventListener('input', function () {
         // запит по трендам + запит на вставку карток у films-list
         console.log(results);
         if (results.length === 0) {
-          console.log('кінофільмів згідно вашого запиту немає');
-          return;
+          clearTimeout(timeoutId)
+          return Notify.info('кінофільмів згідно вашого запиту немає');
         }
         filmList.innerHTML = filmCardMacker(results);
         currentCollection = 'currentSearchMovieCollection';
@@ -54,7 +53,7 @@ inputSearchEll.addEventListener('input', function () {
     );
 
     console.log('Текст був введений більше ніж 2 секунди тому.');
-  }, 2000);
+  }, 1500);
 });
 
 //При переході на кожну сторінку малювати відповідну частину фільмів
