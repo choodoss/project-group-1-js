@@ -26,7 +26,9 @@
         <a href="./" class="logo"><svg class="logo__icon" width="190" height="38">
             <use href="./images/svg/sprite.svg#icon-logo"></use>
           </svg></a>
-        <ul class="header-nav__list-1">
+          
+          <div class="wrap-list">
+            <ul class="header-nav__list-1">
           <li class="header-nav__item header-nav__item--home">
             <a href="./" class="header-nav__title header-nav__title--home header-nav__title--active">Home</a>
           </li>
@@ -50,6 +52,27 @@
             </button>
           </li>
         </ul>
+
+        <div class="theme-switch">
+          <svg class="theme-switch__icon icon-sun" role="img" aria-label="Sun icon">
+        <use href="./images/svg/sprite.svg#icon-sun"></use>
+      </svg>
+
+      <div class="theme-switch__control">
+        <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+          aria-label="Switch between dark and light theme" />
+        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+
+      <svg class="theme-switch__icon icon-moon" aria-label="Moon icon">
+        <use href="./images/svg/sprite.svg#icon-contrast"></use>
+      </svg>
+        </div>
+          </div>
+
+        
+
         </ul>
         <ul class="header-nav__list-2 is-hidden">
           <li class="header-nav__item">
@@ -105,6 +128,8 @@
   <script type="module" src="./js/Firebase-registration.js"></script>
   <script type="module" src="./js/Firebase-storage.js"></script>
   <script type="module" src="./videotube/videotube.min.js"></script>
+  <script type="module" src="./js/theme.js"></script>
+
 
 </body>
 

@@ -1,246 +1,239 @@
 .about-film-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & .container {
     overflow-y: auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 999;
-
-    opacity: 1;
-    transition: opacity 250ms ease-in-out;
-
-    &.is-hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    & .container {
-        overflow-y: auto;
-    }
+  }
 }
 
 .modal-body {
-    background-color: $color--white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  background-color: $color--white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 90%;
+  padding: 48px 20px 40px 20px;
+  border-radius: 20px;
+
+  @media screen and (min-width: 480px) {
     transform: translate(-50%, -30%);
-    width: 90%;
+    width: 65%;
     padding: 48px 20px 40px 20px;
+  }
 
-    @media screen and (min-width: 480px) {
-        transform: translate(-50%, -30%);
-        width: 65%;
-        padding: 48px 20px 40px 20px;
-    }
+  @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%);
+    width: 704px;
+    padding: 40px 72px 64px 36px;
+  }
 
-    @media screen and (min-width: 768px) {
-        transform: translate(-50%, -50%);
-        width: 704px;
-        padding: 40px 72px 64px 36px;
-    }
-
-    @media screen and (min-width: 1200px) {
-        transform: translate(-50%, -50%);
-        width: 806px;
-        padding: 40px 12px;
-    }
-
+  @media screen and (min-width: 1200px) {
+    transform: translate(-50%, -50%);
+    width: 806px;
+    padding: 40px 12px;
+  }
 }
 
 .close-btn {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 8px;
-    right: 8px;
-    color: $color--black;
-    background-color: $color--white;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 8px;
+  right: 8px;
+  color: $color--black;
+  background-color: $color--white;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: color 250ms ease-in-out, background-color 250ms ease-in-out, ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 
-    &:hover {
-        color: $color--white;
-        background-color: var(--var-color-primary);
-
-    }
+  &:hover {
+    color: $color--white;
+    background-color: var(--var-color-primary);
+  }
 }
 
 .close__icon {
-    display: block;
-    width: 30px;
-    height: 30px;
-    stroke: currentColor;
+  display: block;
+  width: 30px;
+  height: 30px;
+  stroke: currentColor;
 }
 
 .about-film {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-    @media screen and (min-width: 768px) {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 68px;
-    }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 68px;
+  }
 
-    @media screen and (min-width: 1200px) {
-
-        align-items: stretch;
-        gap: 16px;
-    }
-
-
+  @media screen and (min-width: 1200px) {
+    align-items: stretch;
+    gap: 16px;
+  }
 }
 
 .about-film__body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .about-film__img {
-    object-fit: cover;
+  object-fit: cover;
 
-    @media screen and (min-width: 768px) {
-        max-width: 254px;
-    }
+  @media screen and (min-width: 768px) {
+    max-width: 254px;
+  }
 
-    @media screen and (min-width: 1200px) {
-        max-width: 375px;
-    }
+  @media screen and (min-width: 1200px) {
+    max-width: 375px;
+  }
 }
 
 .film__title {
-    text-transform: uppercase;
-    font-size: 1.25rem;
-    line-height: 1.15;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1.15;
 }
 
 .film-atributes {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  gap: 40px;
 }
 
 .film-properties,
 .film-value {
-    line-height: 1.33;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    color: $text-color--gray;
+  line-height: 1.33;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: $text-color--gray;
 }
 
 .film-properties {
-    flex-shrink: 0;
-    flex-grow: 1;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 
 .value {
-    display: flex;
-    align-items: center;
-    gap: 3px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .film-value {
-    color: $color--black;
+  color: $color--black;
 }
 
 .value--red,
 .value--gray-bg {
-    background: var(--var-color-primary);
-    border-radius: 0.3125rem;
-    width: 36px;
-    height: 16px;
-    padding: 1px 4px;
-    line-height: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $color--white;
+  background: var(--var-color-primary);
+  border-radius: 0.3125rem;
+  width: 36px;
+  height: 16px;
+  padding: 1px 4px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color--white;
 }
 
 .value--gray {
-    color: $text-color--gray;
+  color: $text-color--gray;
 }
 
 .value--gray-bg {
-    background: $color--gray;
-    color: $color--black;
+  background: $color--gray;
+  color: $color--black;
 }
 
-.about-film__description {}
+.about-film__description {
+}
 
 .description__title {
-    text-transform: uppercase;
-    margin-bottom: 8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .description {
-    line-height: 1.67;
+  line-height: 1.67;
 }
 
 .button__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 
-    @media screen and (min-width: 769px) {
-        gap: 8px;
-    }
+  @media screen and (min-width: 769px) {
+    gap: 8px;
+  }
 }
 
 .add-to-watched,
 .add-to-queue {
-    padding: 10px 12px;
-    font-weight: inherit;
-    text-transform: uppercase;
-    background-color: $color--white;
-    border-radius: 6.25rem;
-    border: 1px solid #000000;
-    color: $color--white;
-    color: var(--var-color-primary);
+  padding: 10px 12px;
+  font-weight: inherit;
+  text-transform: uppercase;
+  background-color: $color--white;
+  border-radius: 6.25rem;
+  border: 1px solid #ddd;
+  color: $color--white;
+  color: var(--var-color-primary);
 
-    &:hover {
-        background-color: var(--var-color-primary);
-        color: $color--white;
-        border: none;
-        padding: 11px 13px;
-    }
-
-    &:focus {
-        outline: none;
-    }
-}
-
-.add-to-active {
+  &:hover {
     background-color: var(--var-color-primary);
     color: $color--white;
     border: none;
     padding: 11px 13px;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
+.add-to-active {
+  background-color: var(--var-color-primary);
+  color: $color--white;
+  border: none;
+  padding: 11px 13px;
+}
 
-
-
-.youtube-container {}
+.youtube-container {
+}
 
 .youtube-link {
-    display: block;
-    padding: 10px 22px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 6.25rem;
-    color: $color--black;
-    background-color: $color--white;
-
+  display: block;
+  padding: 10px 22px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 6.25rem;
+  color: $color--black;
+  background-color: $color--white;
 }
