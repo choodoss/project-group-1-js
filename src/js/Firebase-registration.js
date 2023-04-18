@@ -4,13 +4,15 @@ import { getAuth,
   createUserWithEmailAndPassword, 
   onAuthStateChanged,
   signInWithEmailAndPassword } from "firebase/auth";
+import { Notify } from "notiflix";
 const auth = getAuth(FirebaseApp)
   
  onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
         const signUp = document.querySelector('.button--signin')
-        // signUp.disabled=true;
+        Notify.success('Welcome Back! Hoooooray')
+        signUp.disabled=true;
       } else {
         console.log('nope uid')
       
@@ -36,6 +38,9 @@ function signUp(e) {
     catch(error){
       const errorCode = error.code;
       console.log('nopenopenope')
+      if (!path) {
+        Notify.failure('Oh you alredy create account. Sign in')
+      }
       // ..
     };}
 
@@ -52,7 +57,7 @@ function signUp(e) {
       const user = userCredential.user;
       console.log('yeap you are here')
       e.target.reset();
-      // ...
+      singModal.classList.add('is-hidden')
     })
     .catch((error) => {
       const errorCode = error.code;
