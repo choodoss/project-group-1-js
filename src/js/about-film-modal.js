@@ -2,7 +2,10 @@ import { getDataFilm } from './getDataFilm';
 import ApiRequest from './ApiRequest';
 import { DatabaseAPI } from './Firebase-storage';
 import { forWatched, forQueue } from './library'
+import { doc } from 'firebase/firestore';
+const btnRegistration = document.querySelector('#registration-modal-open')
 const DatabaseAPIstorage = new DatabaseAPI;
+console.log(btnRegistration)
 const libRef = document.querySelector('.header-nav__title--lib');
 
 let watchedBtn;
@@ -18,16 +21,29 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
   const filmcard = document.querySelector('.about-film');
 
   try {
+    let watchedTextBt;
+    let queueTextBt;
     const { overview } = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
     const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
-    const watchedList = await DatabaseAPIstorage.getWatchedList();
-    const queuedList = await DatabaseAPIstorage.getQueueList();
     const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
+
+    let disabladBtn = 'disabled';
+    if (btnRegistration.classList.contains('header-nav__title--active')) {
+      console.log(btnRegistration)
+      const watchedList = await DatabaseAPIstorage.getWatchedList();
+      const queuedList = await DatabaseAPIstorage.getQueueList();
+      if (watchedList.includes(id)) {
+        watchedTextBt = 'remove at Watched';
+      }
+      if (queuedList.includes(id)) {
+        queueTextBt = 'remove at queue';
+      }
+      disabladBtn = '';
+    }
 
     // const localStorageDataWatch = JSON.parse(localStorage.getItem("watchedID"))
     // const localStorageDataQueue = JSON.parse(localStorage.getItem("queueId"))
-    let watchedTextBt;
-    let queueTextBt;
+
 
     // if (localStorageDataWatch.includes(id)) {
     //   watchedTextBt = 'remove at Watched';
@@ -35,14 +51,6 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     // if (localStorageDataQueue.includes(id)) {
     //   queueTextBt = 'remove at queue';
     // }
-
-    if (watchedList.includes(id)) {
-      watchedTextBt = 'remove at Watched';
-    }
-    if (queuedList.includes(id)) {
-      queueTextBt = 'remove at queue';
-    }
-
 
     filmcard.innerHTML = `
       <img class="about-film__img" src="${poster}" />
@@ -89,10 +97,10 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
           <a href="${trailer}" class="youtube-link tube" data-modal-close>Trailer</a>
         </div>
         <div class="button__wrapper" id="buttonWrapper">
-  <button data-id="${id}" class="add-to-watched" type="button" data-value="${watchedTextBt ? 'add' : 'no'}" id="btn-watched">
+  <button data-id="${id}" class="${disabladBtn ? "button-disabled" : 'add-to-watched'}" type="button" ${disabladBtn} data-value="${watchedTextBt ? 'add' : 'no'}" id="btn-watched">
     ${watchedTextBt ? watchedTextBt : 'add to Watched'}
   </button>
-  <button data-id="${id}" class="add-to-queue" type="button" data-value="${queueTextBt ? 'add' : 'no'}" id="btn-queue">
+  <button data-id="${id}" class="${disabladBtn ? "button-disabled" : 'add-to-queue'}" type="button" ${disabladBtn} data-value="${queueTextBt ? 'add' : 'no'}" id="btn-queue">
     ${queueTextBt ? queueTextBt : 'add to queue'}
   </button>
                 </div>
@@ -105,7 +113,6 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     console.log(error)
   }
 }
-
 
 async function hendleWatchedBtn({ target }) {
 
@@ -149,6 +156,7 @@ async function hendleQueueBtn({ target }) {
       await forQueue();
     }
   } else {
+
     DatabaseAPIstorage.addToQueue(id)
     // let arrAllId = [];
     // JSON.parse(localStorage.getItem("queueId")).map(i => arrAllId.push(i));

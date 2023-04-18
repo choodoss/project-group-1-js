@@ -229,9 +229,6 @@
     padding: 11px 13px;
 }
 
-
-
-
 .youtube-container {}
 
 .youtube-link {
@@ -242,5 +239,15 @@
     border-radius: 6.25rem;
     color: $color--black;
     background-color: $color--white;
+}
 
+.button-disabled {
+    display: block;
+    padding: 10px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+    padding: 10px 26px;
+    color: $color--white;
+    background-color: $color--black;
 }
