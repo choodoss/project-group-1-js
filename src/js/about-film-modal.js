@@ -98,9 +98,9 @@ function hendleWatchedBtn({ target }) {
   const add = "add"
   const no = "no"
   const id = target.dataset.id;
-  console.log(target.dataset.value)
+
   if (target.dataset.value === add) {
-    console.log('if')
+
     const arrWithOutId = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== id && value !== 1);
     localStorage.setItem(("watchedID"), JSON.stringify(arrWithOutId));
     console.log(arrWithOutId);
@@ -108,12 +108,35 @@ function hendleWatchedBtn({ target }) {
     target.dataset.value = 'no';
     console.log(JSON.parse(localStorage.getItem("watchedID")))
   } else {
-    console.log('else')
+
     let arrAllId = [];
     JSON.parse(localStorage.getItem("watchedID")).map(i => arrAllId.push(i));
     arrAllId.push(id);
     localStorage.setItem(("watchedID"), JSON.stringify(arrAllId));
     target.textContent = 'remove at Watched';
+    target.dataset.value = 'add';
+    console.log(arrAllId);
+  }
+}
+
+function hendleQueueBtn({ target }) {
+  const add = "add"
+  const no = "no"
+  const id = target.dataset.id;
+
+  if (target.dataset.value === add) {
+    const arrWithOutId = JSON.parse(localStorage.getItem("queueId")).filter(value => value !== id && value !== 1);
+    localStorage.setItem(("queueId"), JSON.stringify(arrWithOutId));
+    console.log(arrWithOutId);
+    target.textContent = 'add to queue';
+    target.dataset.value = 'no';
+    console.log(JSON.parse(localStorage.getItem("queueId")))
+  } else {
+    let arrAllId = [];
+    JSON.parse(localStorage.getItem("queueId")).map(i => arrAllId.push(i));
+    arrAllId.push(id);
+    localStorage.setItem(("queueId"), JSON.stringify(arrAllId));
+    target.textContent = 'remove at queue';
     target.dataset.value = 'add';
     console.log(arrAllId);
   }
@@ -125,29 +148,3 @@ function hendleWatchedBtn({ target }) {
 //текст контент 
 //первірка до мейкапу і +перевірка коли вона зміналася через іннер текст
 //додати у масив даних
-
-
-function hendleQueueBtn({ target }) {
-  const add = "add"
-  const no = "no"
-  const id = target.dataset.id;
-  console.log(target.dataset.value)
-  if (target.dataset.value === add) {
-    console.log('if')
-    const arrWithOutId = JSON.parse(localStorage.getItem("queueId")).filter(value => value !== id && value !== 1);
-    localStorage.setItem(("queueId"), JSON.stringify(arrWithOutId));
-    console.log(arrWithOutId);
-    target.textContent = 'add to queue';
-    target.dataset.value = 'no';
-    console.log(JSON.parse(localStorage.getItem("queueId")))
-  } else {
-    console.log('else')
-    let arrAllId = [];
-    JSON.parse(localStorage.getItem("queueId")).map(i => arrAllId.push(i));
-    arrAllId.push(id);
-    localStorage.setItem(("queueId"), JSON.stringify(arrAllId));
-    target.textContent = 'remove at queue';
-    target.dataset.value = 'add';
-    console.log(arrAllId);
-  }
-}

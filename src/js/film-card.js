@@ -38,13 +38,20 @@ let genreArr = [
 export function filmCardMacker(arr) { //функція створення картки фільму
 
     return arr.map(item => {
+        let genres;
 
-        const genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
-            .map(id => {
-                const genreObj = genreArr.find(obj => obj.id === id);
-                return genreObj ? genreObj.name : '';
-            });
-
+        if (item.genre_ids) {
+            genres = item.genre_ids // пошук співпадіння ід у картці фільму із масивом даних genre
+                .map(id => {
+                    const genreObj = genreArr.find(obj => obj.id === id);
+                    return genreObj ? genreObj.name : '';
+                });
+            console.log(genres)
+        } else {
+            const genredata = item.genres;
+            genres = genredata.map(gen => gen.name);
+            console.log(genres)
+        }
         const genresAllforfilmAbout = genres.join(', ');
 
         let genreString;

@@ -52,3 +52,15 @@ export async function fetchTrailer(id) {
     spinner.disable(); //Вимкнути спіннер
     return await response.json();
 }
+
+
+export async function getMoviesById(ids) {
+    const promises = ids.map(id =>
+      fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+        .then(response => response.json())
+    );
+    
+    const movies = await Promise.all(promises);
+    
+    return movies;
+  }
