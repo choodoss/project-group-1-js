@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
@@ -20,64 +20,7 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <nav class="header-nav header-nav__bg--yellow">
-        <a href="./" class="logo"><svg class="logo__icon" width="190" height="38">
-            <use href="./images/svg/sprite.svg#icon-logo"></use>
-          </svg></a>
-        <ul class="header-nav__list-1">
-          <li class="header-nav__item header-nav__item--home">
-            <a href="./" class="header-nav__title header-nav__title--home header-nav__title--active">Home</a>
-          </li>
-          <li class="header-nav__item header-nav__item--lib">
-            <a href="#" class="header-nav__title header-nav__title--lib">My Library</a>
-          </li>
-          <li class="header-nav__item header-nav__item--input">
-            <input class="header-nav__input" type="text" placeholder="Movie Search" />
-            <svg class="search__icon" width="14" height="14">
-              <use href="./images/svg/sprite.svg#icon-search"></use>
-            </svg>
-            <div class=" header-error ">
-              <p class="header-error-text visually-hidden">
-                Search result not successful. Enter the correct movie name and try again
-              </p>
-            </div>
-          </li>
-          <li class="header-nav__item header-nav__item--registration">
-            <button type="button" class="header-nav__title header-nav__title--registration button--signin" id="registration-modal-open">
-              Sign up
-            </button>
-          </li>
-        </ul>
-        </ul>
-        <ul class="header-nav__list-2 is-hidden">
-          <li class="header-nav__item">
-            <button type="button" class="header-nav__title header-nav__title--watch button--watched" data-active="false"
-              id="watched-btn">
-              Watched
-            </button>
-          </li>
-          <li class="header-nav__item">
-            <button type="button" class="header-nav__title header-nav__title--queue button--queue" data-active="false"
-              id="queue-btn">
-              queue
-            </button>
-          </li>
-          
-        </ul>
-        <div class="switch-them">
-          <div class="switch-body">
-            <ul class="switch-line">
-              <li class="switch-yellow" data-yellow></li>
-              <li class="switch-red" data-red></li>
-              <li class="switch-orange" data-orange></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <include src="./partials/header.html"></include>
   <main>
     <include src="./partials/films.html"></include>
     <include src="./partials/pagenav.html"></include>
@@ -93,19 +36,17 @@
   <script type="module" src="./js/library.js"></script>
   <script type="module" src="./js/startFetch.js"></script>
   <script type="module" src="./js/about-film-modal.js"></script>
-  <script type="module" src="./js/modal.js"></script>
   <script type="module" src="./js/spinner.js"></script>
   <script type="module" src="./js/localStorageAPI.js"></script>
   <script type="module" src="./js/switch-them.js"></script>
   <script type="module" src="./js/team-modal.js"></script>
   <script type="module" src="./js/upward.js"></script>
-  <script type="module" src="./js/add-to-watched&queue.js"></script>
   <script type="module" src="./js/pagination.js"></script>
   <script type="module" src="./js/registration-modal.js"></script>
   <script type="module" src="./js/Firebase-registration.js"></script>
   <script type="module" src="./js/Firebase-storage.js"></script>
   <script type="module" src="./videotube/videotube.min.js"></script>
-
+  <script type="module" src="./js/modal.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,10 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix';
 import { getMoviesById } from './getDataFilm';
 import { filmCardMacker } from './film-card';
+import { DatabaseAPI } from './Firebase-storage';
+
+const DatabaseAPIstorage = new DatabaseAPI;
+
 const btnHome = document.querySelector('.header-nav__title--home');
 const btnWatched = document.querySelector('#watched-btn');
 const btnQueue = document.querySelector('#queue-btn');
@@ -12,21 +16,20 @@ const inputSearchEll = document.querySelector('.header-nav__item--input'); // п
 
 libRef.addEventListener('click', hendleOpenLib);
 
-function hendleOpenLib(e) {
-
+async function hendleOpenLib(e) {
+  const watchedList = await DatabaseAPIstorage.getWatchedList();
+  const queuedList = await DatabaseAPIstorage.getQueueList();
   if (libRef.classList.contains('header-nav__title--active')) {
     return;
   }
-  if (!localStorage.getItem("watchedID") || !localStorage.getItem("queueId")) {
-    if (JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== 1) === [] || JSON.parse(localStorage.getItem("queueId")).filter(value => value !== 1) === []) {
-      badNews()
-      return
-    }
+
+  if (watchedList.length === 0 && queuedList.length === 0) {
     badNews()
     return
   }
+
   filmList.innerHTML = '';
-  const watchedID = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== 1)
+  const watchedID = watchedList
   console.log(watchedID)
   btnHome.classList.toggle('header-nav__title--active');
   libRef.classList.toggle('header-nav__title--active');
@@ -36,7 +39,6 @@ function hendleOpenLib(e) {
   btnWatched.dataset.active = true;
   getMoviesById(watchedID).then(
     res => {
-      console.log(res)
       filmList.innerHTML = filmCardMacker(res);
     })
 }
@@ -52,44 +54,31 @@ function badNews() {
   filmList.classList.toggle('library-empty')
 }
 
-// window.addEventListener('storage', function (event) {
-//   // Перевіряємо, який ключ змінився
-//   if (event.key === 'queue-btn') {
-//     forQueue()
-//   }
-//   if (event.key === 'watched-btn') {
-//     forWatched()
-//   }
-// });
-
 btnsRefs.addEventListener('click', hendleBtnRefsclick)
 
-function forWatched() {
-  const watchedID = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== 1)
+export async function forWatched() {
+  const watchedList = await DatabaseAPIstorage.getWatchedList();
+  const watchedID = watchedList;
   filmList.innerHTML = '';
-  btnWatched.classList.add('header-nav__title--active');
-  btnQueue.classList.remove('header-nav__title--active');
   if (watchedID.length === 0) {
     Notify.failure("You haven't added anything to the watched yet")
     return;
   }
-  getMoviesById(watchedID).then(
+  await getMoviesById(watchedID).then(
     res => {
       filmList.innerHTML = filmCardMacker(res);
     })
   return;
 }
 
-function forQueue() {
-  const queueId = JSON.parse(localStorage.getItem("queueId")).filter(value => value !== 1)
+export async function forQueue() {
+  const queueId = await DatabaseAPIstorage.getQueueList();
   filmList.innerHTML = '';
-  btnWatched.classList.remove('header-nav__title--active');
-  btnQueue.classList.add('header-nav__title--active');
   if (queueId.length === 0) {
     Notify.failure("You haven't added anything to the queue yet")
     return;
   }
-  getMoviesById(queueId).then(
+  await getMoviesById(queueId).then(
     res => {
       console.log(res)
       filmList.innerHTML = filmCardMacker(res);
@@ -107,10 +96,8 @@ function hendleBtnRefsclick({ target }) {
     forWatched()
   }
   if (target.id === 'queue-btn') {
-    console.log(target.id)
     target.dataset.active = true;
     btnWatched.dataset.active = false;
-    console.log(target.dataset.active)
     forQueue()
   }
 }
