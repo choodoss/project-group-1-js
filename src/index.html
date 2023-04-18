@@ -41,6 +41,11 @@
              </p>
            </div>
           </li>
+          <li class="header-nav__item header-nav__item--registration">
+            <button type="button" class="header-nav__title header-nav__title--registration button--signin" id="registration-modal-open">
+              Sign up
+            </button>
+          </li>
         </ul>
         </ul>
         <ul class="header-nav__list-2 is-hidden">
@@ -54,6 +59,7 @@
               queue
             </button>
           </li>
+          
         </ul>
         <div class="switch-them">
           <div class="switch-body">
@@ -72,6 +78,7 @@
     <include src="./partials/pagenav.html"></include>
     <include src="./partials/about-film-modal.html"></include>
     <include src="./partials/team-modal.html"></include>
+    <include src="./partials/registration-modal.html"></include>
   </main>
   <include src="./partials/upward.html"></include>
   <include src="./partials/spinner.html"></include>
@@ -89,8 +96,9 @@
   <script type="module" src="./js/upward.js"></script>
   <script type="module" src="./js/add-to-watched&queue.js"></script>
   <script type="module" src="./js/pagination.js"></script>
-
-
+  <script type="module" src="./js/registration-modal.js"></script>
+  <script type="module" src="./js/Firebase-registration.js"></script>
+  <script type="module" src="./js/Firebase-storage.js"></script>
 </body>
 
 </html>
