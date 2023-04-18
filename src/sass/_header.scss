@@ -185,10 +185,7 @@ header .container {
     }
 }
 
-.header-nav__title--active {
-    color: $color--white;
-    background-color: $color--black;
-}
+
 
 .header-nav__title--registration {
     position: absolute;
@@ -227,6 +224,11 @@ header .container {
     @media screen and (min-width: 769px) {
         padding: 14px 32px;
     }
+}
+
+.header-nav__title--active {
+    color: $color--white;
+    background-color: $color--black;
 }
 
 .header-nav__item {

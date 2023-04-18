@@ -8,9 +8,7 @@ import {
 } from "firebase/auth";
 import { Notify } from "notiflix";
 
-{/* <button type="button" class="header-nav__title--registration button--signin" id="registration-modal-open">
-Sign up
-</button> */}
+const btnRegistration = document.querySelector('#registration-modal-open')
 
 const auth = getAuth(FirebaseApp)
 
@@ -19,10 +17,12 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     const signUp = document.querySelector('.button--signin')
     signUp.disabled = true;
-
+    btnRegistration.textContent = 'sign out'; // Зміна надпису на кнопці реєстрації
+    btnRegistration.classList.add('header-nav__title--active') // додавання класу на кнопку реєстрації
+    // btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
+    // btnRegistration.classList.remove('header-nav__title--active') // додавання класу на кнопку реєстрації
   } else {
     console.log('nope uid')
-
   }
 });
 
