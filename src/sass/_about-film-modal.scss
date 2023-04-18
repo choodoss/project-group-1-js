@@ -188,7 +188,7 @@
     line-height: 1.67;
 }
 
-.button__wraper {
+.button__wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,21 +199,48 @@
     }
 }
 
-.add-to-watched {
+.add-to-watched,
+.add-to-queue {
     padding: 10px 12px;
     font-weight: inherit;
     text-transform: uppercase;
-    background-color: var(--var-color-primary);
+    background-color: $color--white;
     border-radius: 6.25rem;
+    border: 1px solid #000000;
     color: $color--white;
+    color: var(--var-color-primary);
+
+    &:hover {
+        background-color: var(--var-color-primary);
+        color: $color--white;
+        border: none;
+        padding: 11px 13px;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.add-to-queue {
-    padding: 9px 13px;
-    font-weight: inherit;
+.add-to-active {
+    background-color: var(--var-color-primary);
+    color: $color--white;
+    border: none;
+    padding: 11px 13px;
+}
+
+
+
+
+.youtube-container {}
+
+.youtube-link {
+    display: block;
+    padding: 10px 22px;
+    text-align: center;
     text-transform: uppercase;
-    border: 1px solid #000000;
     border-radius: 6.25rem;
+    color: $color--black;
     background-color: $color--white;
-    color: var(--var-color-primary);
+
 }

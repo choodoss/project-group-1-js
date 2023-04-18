@@ -3,6 +3,8 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 import { Notify } from 'notiflix';
+import btn from './modal'
+
 
 // currentCollection:
 // Назва колекції за ключовим словом - currentSearchMovieCollection
@@ -44,10 +46,12 @@ inputSearchEll.addEventListener('input', function () {
         console.log(results);
         if (results.length === 0) {
           clearTimeout(timeoutId)
-          return Notify.info('кінофільмів згідно вашого запиту немає');
+          messageErrorEll.classList.remove("visually-hidden");
+          return;
         }
         filmList.innerHTML = filmCardMacker(results);
         currentCollection = 'currentSearchMovieCollection';
+        messageErrorEll.classList.add("visually-hidden");
         return;
       }
     );
@@ -65,7 +69,6 @@ activePageCollection = Number(activePagePaginationEll.textContent);
 console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
-  // e.preventDefault();
   switch (currentCollection) {
     case 'topFilmsCollection':
       getDataFilm(ApiRequest.popularFilm, {
@@ -96,3 +99,5 @@ activePagePaginationEll.addEventListener('click', function (e) {
       break;
   }
 });
+
+

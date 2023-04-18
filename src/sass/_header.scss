@@ -50,6 +50,7 @@ header .container {
 .logo__icon {
     width: 190px;
     height: 38px;
+    transition: transform 0.2s ease-in-out;
 
     @media screen and (min-width: 480px) {
         width: 233px;
@@ -60,6 +61,10 @@ header .container {
         width: 375px;
         height: 75px;
     }
+}
+
+.logo:hover .logo__icon {
+    transform: scale(1.1);
 }
 
 .header-nav__list-1 {
@@ -152,37 +157,20 @@ header .container {
         }
     }
 
-    &--watch {
+    &--watch,
+    &--queue {
         background: $color--white;
         color: var(--var-color-primary);
         box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
         margin-bottom: 10px;
 
-        &:hover,
-        &:focus {
-            color: $color--white;
-            background: var(--var-color-primary);
-        }
+        &[data-active="false"] {
 
-        @media screen and (min-width: 480px) {
-            padding: 12px 22px;
-            margin-bottom: 0;
-        }
-
-        @media screen and (min-width: 769px) {
-            padding: 14px 32px;
-        }
-    }
-
-    &--queue {
-        background: $color--white;
-        margin-bottom: 10px;
-        color: var(--var-color-primary);
-
-        &:hover,
-        &:focus {
-            color: $color--white;
-            background: var(--var-color-primary);
+            &:hover,
+            &:focus {
+                color: $color--white;
+                background: var(--var-color-primary);
+            }
         }
 
         @media screen and (min-width: 480px) {
@@ -259,6 +247,8 @@ header .container {
     right: 14;
     stroke: currentColor;
     fill: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 
     @media screen and (min-width: 480px) {
         top: 11;
@@ -268,6 +258,10 @@ header .container {
     @media screen and (min-width: 769px) {
         top: 13;
     }
+}
+
+.search__icon:hover {
+    transform: scale(1.8);
 }
 
 .header-nav__item--input {
@@ -349,33 +343,37 @@ header .container {
 .header-error {
     max-width: 480px;
     margin-top: 8px;
-    
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: .4rem;
 
     @media screen and (min-width: 480px) {
-            max-width: 768px;
-        }
-    
-    @media screen and (min-width: 769px) {
-            max-width: 1280px;
-        }
+        max-width: 768px;
+    }
 
-    
+    @media screen and (min-width: 769px) {
+        max-width: 1280px;
+    }
+
+
 }
-.header-error-text{
-    padding-left: 14px;
+
+.header-error-text {
+    display: block;
+    padding: 3px;
     width: 170px;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.2;
-    color: $color--white;
+    color: #000;
+
     @media screen and (min-width: 480px) {
         width: 150px;
-        padding-left: 16px;
-        }
+        padding: 3px;
+    }
+
     @media screen and (min-width: 769px) {
         width: 170px;
-        padding-left: 14px;
-        }
-   
-
+        padding: 3px;
+    }
 }
