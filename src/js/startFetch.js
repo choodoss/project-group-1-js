@@ -51,6 +51,7 @@ inputSearchEll.addEventListener('input', function () {
         }
         filmList.innerHTML = filmCardMacker(results);
         currentCollection = 'currentSearchMovieCollection';
+        messageErrorEll.classList.add("visually-hidden");
         return;
       }
     );
