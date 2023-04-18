@@ -1,4 +1,5 @@
 import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Notify } from 'notiflix';
 import { getMoviesById } from './getDataFilm';
 import { filmCardMacker } from './film-card';
 const btnHome = document.querySelector('.header-nav__title--home');
@@ -24,6 +25,7 @@ function hendleOpenLib(e) {
     badNews()
     return
   }
+  filmList.innerHTML = '';
   const watchedID = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== 1)
   console.log(watchedID)
   btnHome.classList.toggle('header-nav__title--active');
@@ -31,9 +33,10 @@ function hendleOpenLib(e) {
   btnsRefs.classList.toggle('is-hidden');
   inputSearchEll.classList.toggle('is-hidden');
   btnWatched.classList.add('header-nav__title--active')
-  btnWatched.setAttribute('data-active', true);
+  btnWatched.dataset.active = true;
   getMoviesById(watchedID).then(
     res => {
+      console.log(res)
       filmList.innerHTML = filmCardMacker(res);
     })
 }
@@ -49,16 +52,69 @@ function badNews() {
   filmList.classList.toggle('library-empty')
 }
 
+// window.addEventListener('storage', function (event) {
+//   // Перевіряємо, який ключ змінився
+//   if (event.key === 'queue-btn') {
+//     forQueue()
+//   }
+//   if (event.key === 'watched-btn') {
+//     forWatched()
+//   }
+// });
+
 btnsRefs.addEventListener('click', hendleBtnRefsclick)
+
+function forWatched() {
+  const watchedID = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== 1)
+  filmList.innerHTML = '';
+  btnWatched.classList.add('header-nav__title--active');
+  btnQueue.classList.remove('header-nav__title--active');
+  if (watchedID.length === 0) {
+    Notify.failure("You haven't added anything to the watched yet")
+    return;
+  }
+  getMoviesById(watchedID).then(
+    res => {
+      filmList.innerHTML = filmCardMacker(res);
+    })
+  return;
+}
+
+function forQueue() {
+  const queueId = JSON.parse(localStorage.getItem("queueId")).filter(value => value !== 1)
+  filmList.innerHTML = '';
+  btnWatched.classList.remove('header-nav__title--active');
+  btnQueue.classList.add('header-nav__title--active');
+  if (queueId.length === 0) {
+    Notify.failure("You haven't added anything to the queue yet")
+    return;
+  }
+  getMoviesById(queueId).then(
+    res => {
+      console.log(res)
+      filmList.innerHTML = filmCardMacker(res);
+    })
+  return;
+}
 
 function hendleBtnRefsclick({ target }) {
   if (target.dataset.active === 'true') {
     return;
   }
-  if (target.dataset.active === 'true') {
-    return;
+  if (target.id === 'watched-btn') {
+    target.dataset.active = true;
+    btnQueue.dataset.active = false;
+    forWatched()
   }
-
+  if (target.id === 'queue-btn') {
+    console.log(target.id)
+    target.dataset.active = true;
+    btnWatched.dataset.active = false;
+    console.log(target.dataset.active)
+    forQueue()
+  }
 }
+
+
 
 

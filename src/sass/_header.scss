@@ -65,7 +65,7 @@ header .container {
 
 .logo:hover .logo__icon {
     transform: scale(1.1);
-  }
+}
 
 .header-nav__list-1 {
     display: flex;
@@ -157,37 +157,20 @@ header .container {
         }
     }
 
-    &--watch {
+    &--watch, 
+    &--queue {
         background: $color--white;
         color: var(--var-color-primary);
         box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
         margin-bottom: 10px;
 
-        &:hover,
-        &:focus {
-            color: $color--white;
-            background: var(--var-color-primary);
-        }
+        &[data-active="false"] {
 
-        @media screen and (min-width: 480px) {
-            padding: 12px 22px;
-            margin-bottom: 0;
-        }
-
-        @media screen and (min-width: 769px) {
-            padding: 14px 32px;
-        }
-    }
-
-    &--queue {
-        background: $color--white;
-        margin-bottom: 10px;
-        color: var(--var-color-primary);
-
-        &:hover,
-        &:focus {
-            color: $color--white;
-            background: var(--var-color-primary);
+            &:hover,
+            &:focus {
+                color: $color--white;
+                background: var(--var-color-primary);
+            }
         }
 
         @media screen and (min-width: 480px) {
@@ -276,9 +259,10 @@ header .container {
         top: 13;
     }
 }
+
 .search__icon:hover {
     transform: scale(1.8);
-  }
+}
 
 .header-nav__item--input {
     &.is-hidden {

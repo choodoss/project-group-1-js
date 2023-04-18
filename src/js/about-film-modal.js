@@ -27,7 +27,7 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
       watchedTextBt = 'remove at Watched';
     }
     if (localStorageDataQueue.includes(id)) {
-      queueTextBt = 'remove at Watched';
+      queueTextBt = 'remove at queue';
     }
 
     filmcard.innerHTML = `
@@ -141,10 +141,3 @@ function hendleQueueBtn({ target }) {
     console.log(arrAllId);
   }
 }
-
-
-//перевірка фільму по ІД через масив даних, тимчасово буде на колахості.
-//додавання класу
-//текст контент 
-//первірка до мейкапу і +перевірка коли вона зміналася через іннер текст
-//додати у масив даних
