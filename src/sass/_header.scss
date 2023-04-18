@@ -50,6 +50,7 @@ header .container {
 .logo__icon {
     width: 190px;
     height: 38px;
+    transition: transform 0.2s ease-in-out;
 
     @media screen and (min-width: 480px) {
         width: 233px;
@@ -61,6 +62,10 @@ header .container {
         height: 75px;
     }
 }
+
+.logo:hover .logo__icon {
+    transform: scale(1.1);
+  }
 
 .header-nav__list-1 {
     display: flex;
@@ -259,6 +264,8 @@ header .container {
     right: 14;
     stroke: currentColor;
     fill: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 
     @media screen and (min-width: 480px) {
         top: 11;
@@ -269,6 +276,9 @@ header .container {
         top: 13;
     }
 }
+.search__icon:hover {
+    transform: scale(1.8);
+  }
 
 .header-nav__item--input {
     &.is-hidden {
