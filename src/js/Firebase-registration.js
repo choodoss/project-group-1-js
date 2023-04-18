@@ -30,6 +30,7 @@ function signUp(e) {
          const user = userCredential.user;
         console.log("Signed up successfully:", user);
         window.location.href = '#'
+        e.target.reset();
       })}
      
     catch(error){
