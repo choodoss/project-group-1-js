@@ -4,8 +4,9 @@ import ApiRequest from './ApiRequest';
 let watchedBtn;
 let queueBtn;
 
-if (!localStorage.getItem("watchedID")) {
+if (!localStorage.getItem("watchedID") || !localStorage.getItem("queueId")) {
   localStorage.setItem(("watchedID"), JSON.stringify([1]))
+  localStorage.setItem(("queueId"), JSON.stringify([1]))
 }
 
 
@@ -17,12 +18,18 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
     const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
 
-    const localStorageData = JSON.parse(localStorage.getItem("watchedID"))
+    const localStorageDataWatch = JSON.parse(localStorage.getItem("watchedID"))
+    const localStorageDataQueue = JSON.parse(localStorage.getItem("queueId"))
     let watchedTextBt;
-    if (localStorageData.includes(id)) {
+    let queueTextBt;
+
+    if (localStorageDataWatch.includes(id)) {
       watchedTextBt = 'remove at Watched';
     }
-    console.log(watchedTextBt)
+    if (localStorageDataQueue.includes(id)) {
+      queueTextBt = 'remove at Watched';
+    }
+
     filmcard.innerHTML = `
       <img class="about-film__img" src="${poster}" />
       <div class="about-film__body">
@@ -67,13 +74,13 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
         <div class="youtube-container">
           <a href="${trailer}" class="youtube-link tube" data-modal-close>Trailer</a>
         </div>
-        <div class="button__wraper" id="buttonWrapper">
-          <button data-id=${id} class="add-to-watched type="button" ${watchedTextBt ? `data-value="add"` : `data-value="no"`} id="btn-watched" >
-            ${watchedTextBt ? watchedTextBt : 'add to Watched'}
-          </button>
-          <button class="add-to-queue" data-id=${id} type="button" id="btn-queue" data-value="add">
-            add to queue
-                    </button>
+        <div class="button__wrapper" id="buttonWrapper">
+  <button data-id="${id}" class="add-to-watched" type="button" data-value="${watchedTextBt ? 'add' : 'no'}" id="btn-watched">
+    ${watchedTextBt ? watchedTextBt : 'add to Watched'}
+  </button>
+  <button data-id="${id}" class="add-to-queue" type="button" data-value="${queueTextBt ? 'add' : 'no'}" id="btn-queue">
+    ${queueTextBt ? queueTextBt : 'add to queue'}
+  </button>
                 </div>
             </div>`
     watchedBtn = document.querySelector('#btn-watched');
@@ -94,7 +101,7 @@ function hendleWatchedBtn({ target }) {
   console.log(target.dataset.value)
   if (target.dataset.value === add) {
     console.log('if')
-    const arrWithOutId = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== id);
+    const arrWithOutId = JSON.parse(localStorage.getItem("watchedID")).filter(value => value !== id && value !== 1);
     localStorage.setItem(("watchedID"), JSON.stringify(arrWithOutId));
     console.log(arrWithOutId);
     target.textContent = 'add to Watched';
@@ -120,6 +127,27 @@ function hendleWatchedBtn({ target }) {
 //додати у масив даних
 
 
-function hendleQueueBtn(e) {
-  console.log(e.target)
+function hendleQueueBtn({ target }) {
+  const add = "add"
+  const no = "no"
+  const id = target.dataset.id;
+  console.log(target.dataset.value)
+  if (target.dataset.value === add) {
+    console.log('if')
+    const arrWithOutId = JSON.parse(localStorage.getItem("queueId")).filter(value => value !== id && value !== 1);
+    localStorage.setItem(("queueId"), JSON.stringify(arrWithOutId));
+    console.log(arrWithOutId);
+    target.textContent = 'add to queue';
+    target.dataset.value = 'no';
+    console.log(JSON.parse(localStorage.getItem("queueId")))
+  } else {
+    console.log('else')
+    let arrAllId = [];
+    JSON.parse(localStorage.getItem("queueId")).map(i => arrAllId.push(i));
+    arrAllId.push(id);
+    localStorage.setItem(("queueId"), JSON.stringify(arrAllId));
+    target.textContent = 'remove at queue';
+    target.dataset.value = 'add';
+    console.log(arrAllId);
+  }
 }

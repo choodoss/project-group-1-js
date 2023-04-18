@@ -216,6 +216,10 @@
         border: none;
         padding: 11px 13px;
     }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .add-to-active {
