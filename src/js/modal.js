@@ -2,7 +2,7 @@ import { cardFilmMacker } from './about-film-modal'
 
 document.addEventListener('DOMContentLoaded', function (e) {
   e.preventDefault();
-  const modals = ['data-modal', 'team-modal'];
+  const modals = ['data-modal', 'team-modal', 'data-registaration'];
 
   modals.forEach(element => {
     const openModalSelector = element + "-open";

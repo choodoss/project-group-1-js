@@ -6,7 +6,7 @@ const filmList = document.querySelector('.films-list');
 
 const pagination = new Pagination('pagination', {
   totalItems: 1000,
-  itemsPerPage: 20,
+  itemsPerPage: 6,
   visiblePages: 5,
 });
 

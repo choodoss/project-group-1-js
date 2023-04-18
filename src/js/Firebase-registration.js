@@ -1,6 +1,7 @@
 import { FirebaseApp } from "./Firebase-init";
 import { getDatabase } from 'firebase/database';
 import {
+  signOut,
   getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -15,8 +16,9 @@ const auth = getAuth(FirebaseApp)
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
+    btnRegistration.addEventListener('click', logOut)
     const signUp = document.querySelector('.button--signin')
-    signUp.disabled = true;
+    btnRegistration.removeAttribute("data-registaration-open");
     btnRegistration.textContent = 'sign out'; // Зміна надпису на кнопці реєстрації
     btnRegistration.classList.add('header-nav__title--active') // додавання класу на кнопку реєстрації
     // btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
@@ -74,3 +76,11 @@ function logIn(e) {
       const errorMessage = error.message;
     });
 }
+
+function logOut({ target }) {
+  btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
+  btnRegistration.classList.remove('header-navtitle--active') // додавання класу на кнопку реєстрації
+  btnRegistration.setAttribute("data-registaration-open");
+  signOut(auth)
+}
+
