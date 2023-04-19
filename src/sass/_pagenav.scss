@@ -1,90 +1,4 @@
-// .page-list {
-//     padding: 40px 0;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-
-//     @media screen and (min-width: 480px) {
-//         padding: 60px 0;
-//     }
-// }
-
-// .page-lisy__item {
-
-//     &:nth-child(1),
-//     &:nth-child(7) {
-//         background: $color--gray;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         border-radius: 0.3125rem;
-//     }
-// }
-
-// .page {
-//     display: block;
-//     padding: 13px;
-//     color: $color--black;
-//     border-radius: 0.3125rem;
-
-//     &:hover,
-//     &:focus {
-//         color: $color--white;
-//         background-color: var(--var-color-primary);
-//     }
-// }
-
-.page--active {
-    background-color: var(--var-color-primary);
-    color: $color--white;
-    border-radius: 0.3125rem;
-}
-
-// .page-arrow {
-//     height: 14px;
-//     width: 14px;
-//     stroke: currentColor;
-// }
-
-
-.page-arrow--right {
-    transform: scaleX(-1);}
-
-// .page-arrow--right {
-//     transform: scaleX(-1);
-// }
-
-
-/*!
- * TOAST UI Pagination
- * @version 3.4.1
- * @author NHN FE Development Team <dl_javascript@nhn.com>
- * @license MIT
- */
-// @charset 'utf-8';
-
-.tui-pagination * {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.tui-ico-ellipsis,
-.tui-ico-first,
-.tui-ico-last,
-.tui-ico-next,
-.tui-ico-prev {
-    overflow: hidden;
-}
-
-.tui-pagination {
-    font-weight: 500;
-    margin: 14px 0 12px;
-    line-height: normal;
-    text-align: center;
-    font-size: 0;
-
+.page-list {
     padding: 40px 0;
     display: flex;
     align-items: center;
@@ -95,61 +9,45 @@
     }
 }
 
-.tui-pagination .tui-page-btn {
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 13px 18px;
+.page-list__item {
+
+    &:nth-child(1),
+    &:nth-child(7) {
+        background: $color--gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.3125rem;
+    }
+}
+
+.page {
+    display: block;
+    padding: 13px;
     color: $color--black;
     border-radius: 0.3125rem;
 
-    &:hover,
-    &:focus {
+    &:hover {
         color: $color--white;
         background-color: var(--var-color-primary);
     }
-
-    margin-left: 0;
-    color: #333;
-    font-size: 12px;
-    line-height: 1;
-    text-decoration: none;
-    vertical-align: middle;
 }
 
-.tui-pagination .tui-page-btn:hover {
-    background-color: #f4f4f4;
-}
-
-.tui-pagination .tui-is-selected,
-.tui-pagination strong {
-    color: #fff;
+.page--active {
     background-color: var(--var-color-primary);
-    cursor: default;
+    color: $color--white;
+    border-radius: 0.3125rem;
 }
 
-.tui-pagination .tui-is-selected:hover {
-    background-color: var(--var-color-primary);
-}
-
-.tui-pagination .tui-first-child.tui-is-selected,
-.tui-pagination strong.tui-first-child {
-    margin-left: 0
+.page-arrow {
+    height: 14px;
+    width: 14px;
+    stroke: currentColor;
 }
 
 .page-arrow--right {
     transform: scaleX(-1);
 }
-
-
-/*!
- * TOAST UI Pagination
- * @version 3.4.1
- * @author NHN FE Development Team <dl_javascript@nhn.com>
- * @license MIT
- */
 
 
 .tui-pagination * {
@@ -303,25 +201,25 @@
 .tui-pagination .tui-ico-first {
     width: 11px;
     height: 10px;
-    background-position: 0px 0px
+    background-position: 0px 0px;
 }
 
 .tui-pagination .tui-ico-prev {
     width: 6px;
     height: 10px;
-    background-position: -26px 0px
+    background-position: -26px 0px;
 }
 
 .tui-pagination .tui-ico-next {
     width: 6px;
     height: 10px;
-    background-position: -13px -24px
+    background-position: -13px -24px;
 }
 
 .tui-pagination .tui-ico-last {
     width: 11px;
     height: 10px;
-    background-position: 0px -12px
+    background-position: 0px -12px;
 }
 
 .tui-pagination .tui-ico-ellip {
@@ -329,7 +227,7 @@
     height: 2px;
     margin-top: 16px;
     vertical-align: top;
-    background-position: 0px -24px
+    background-position: 0px -24px;
 }
 
 .tui-pagination .tui-is-disabled:hover {
@@ -338,19 +236,19 @@
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
-    background-position: -26px -12px
+    background-position: -26px -12px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-first {
-    background-position: -13px 0px
+    background-position: -13px 0px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-next {
-    background-position: -21px -24px
+    background-position: -21px -24px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-last {
-    background-position: -13px -12px
+    background-position: -13px -12px;
 }
 
 ячсчсп .tui-page-inputs {

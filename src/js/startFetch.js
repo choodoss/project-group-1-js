@@ -16,7 +16,7 @@ let querySearch = ''; // параметр для пошуку
 
 getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
   .then(res => {
-    console.log(res);
+
     filmList.innerHTML = filmCardMacker(res.results);
     currentCollection = 'topFilmsCollection';
     return;
@@ -24,7 +24,7 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
   );
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
-console.log('inputSearchEll----', inputSearchEll);
+
 const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
 
 let timeoutId;
@@ -62,10 +62,8 @@ inputSearchEll.addEventListener('input', function () {
 //При переході на кожну сторінку малювати відповідну частину фільмів
 
 const activePagePaginationEll = document.querySelector('.page--active'); // посилання на активну сторінку пагінації
-console.log('activePagePaginationEll----', activePagePaginationEll);
 
 activePageCollection = Number(activePagePaginationEll.textContent);
-console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
   switch (currentCollection) {
