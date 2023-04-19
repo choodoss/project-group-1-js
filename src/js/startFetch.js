@@ -3,7 +3,6 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 import { Notify } from 'notiflix';
-import btn from './modal'
 
 
 // currentCollection:
@@ -14,18 +13,18 @@ let currentCollection = 'topFilmsCollection'; // назва колекції п�
 let activePageCollection = 1; // номер активної сторінки по дефолту
 let querySearch = ''; // параметр для пошуку
 
-getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(
-  res => {
-    // запит по трендам + запит на вставку карток у films-list
-    console.log(res);
+
+getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
+  .then(res => {
+
     filmList.innerHTML = filmCardMacker(res.results);
     currentCollection = 'topFilmsCollection';
     return;
   }
-);
+  );
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
-console.log('inputSearchEll----', inputSearchEll);
+
 const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
 
 let timeoutId;
@@ -63,10 +62,8 @@ inputSearchEll.addEventListener('input', function () {
 //При переході на кожну сторінку малювати відповідну частину фільмів
 
 const activePagePaginationEll = document.querySelector('.page--active'); // посилання на активну сторінку пагінації
-console.log('activePagePaginationEll----', activePagePaginationEll);
 
 activePageCollection = Number(activePagePaginationEll.textContent);
-console.log(activePageCollection);
 
 activePagePaginationEll.addEventListener('click', function (e) {
   switch (currentCollection) {

@@ -6,49 +6,38 @@ const filmList = document.querySelector('.films-list');
 
 const pagination = new Pagination('pagination', {
   totalItems: 1000,
-  itemsPerPage: 6,
-  visiblePages: 5,
+  itemsPerPage: 20,
+  visiblePages: 7,
+
+
 });
 
 pagination.on('beforeMove', function (eventData) {
   getDataFilm(ApiRequest.popularFilm, {
     language: 'en-US',
     page: eventData.page,
-  }).then(({ results }) => {
-    console.log(results);
-    filmList.innerHTML = filmCardMacker(results);
-    currentCollection = 'topFilmsCollection';
-    return;
-  });
+  })
+    .then(({ results }) => {
+      filmList.innerHTML = filmCardMacker(results);
+      currentCollection = 'topFilmsCollection';
+      return;
+    });
+});
+pagination.on('beforeMove', function (eventData) {
+  getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(
+    ({ results }) => {
+      // запит по трендам + запит на вставку карток у films-list
+      console.log(results);
+      if (results.length === 0) {
+        clearTimeout(timeoutId)
+        messageErrorEll.classList.remove("visually-hidden");
+        return;
+      }
+      filmList.innerHTML = filmCardMacker(results);
+      currentCollection = 'currentSearchMovieCollection';
+      messageErrorEll.classList.add("visually-hidden");
+      return;
+    }
+  );
 });
 
-//зробити подвійний фетч.
-//
-
-
-
-// const pagination = new Pagination('pagination', options);
-// const page = pagination.getCurrentPage();
-
-// pagination.on('beforeMove', loadMorePopylarPhotos);
-
-// const loadMorePopylarPhotos = async event => {
-//   const currentPage = event.page;
-//   Loading.hourglass({
-//     clickToClose: true,
-//     svgSize: '200px',
-//     svgColor: '#ff6b01',
-//   });
-//   render.clear();
-//   const data = await request.popular(currentPage);
-//   const genres = await request.genres();
-//   render.print(data, genres, markup.gallery);
-//   Loading.remove();
-// };
-
-// pagination.reset(data.total_results);
-// pagination.off('beforeMove', loadMorePopylarPhotos);
-// pagination.off('beforeMove', loadMoreOueryPhotos);
-// pagination.on('beforeMove', loadMoreOueryPhotos);
-
-// pagination.reset(data.total_results);
