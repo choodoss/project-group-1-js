@@ -21,3 +21,6 @@ pagination.on('beforeMove', function (eventData) {
     return;
   });
 });
+
+//зробити подвійний фетч.
+// 

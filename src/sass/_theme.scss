@@ -5,6 +5,7 @@
 
   @media screen and (max-width: 479px) {
     margin-bottom: 90px;
+    zoom: 70%;
   }
 
   @media screen and (min-width: 480px) {
@@ -13,6 +14,10 @@
 
   @media screen and (min-width: 769px) {
     margin-bottom: 10px;
+  }
+
+  &.is-opacity {
+    opacity: 100%;
   }
 }
 
@@ -81,16 +86,16 @@
   transition: transform 250ms linear;
 }
 
-.theme-switch__toggle:checked + .theme-switch__track {
+.theme-switch__toggle:checked+.theme-switch__track {
   background-color: #333;
 }
 
-.theme-switch__toggle:checked ~ .theme-switch__marker {
+.theme-switch__toggle:checked~.theme-switch__marker {
   transform: translateX(20px);
 }
 
-.theme-switch__toggle:focus + .theme-switch__track,
-.theme-switch__toggle:active + .theme-switch__track {
+.theme-switch__toggle:focus+.theme-switch__track,
+.theme-switch__toggle:active+.theme-switch__track {
   box-shadow: 0 0 0 1px #1e1e1e;
 }
 
@@ -109,11 +114,9 @@ body.dark-theme {
   background-image: url(../images/img/star.jpg);
 
   & .footer {
-    background: linear-gradient(
-      180deg,
-      rgb(51, 51, 51),
-      rgb(156, 156, 156) 100%
-    );
+    background: linear-gradient(180deg,
+        rgb(51, 51, 51),
+        rgb(156, 156, 156) 100%);
   }
 
   & .footer-text {
@@ -157,10 +160,12 @@ body.dark-theme {
   & .trending-tv-btn {
     color: #ffffff;
   }
+
   & .spinner {
     background: url(../images/img/star.jpg);
     background: transparent;
   }
+
   & .page-header,
   & .page-lib {
     box-shadow: -1px 7px 33px 6px rgba(211, 211, 211, 0.1);
