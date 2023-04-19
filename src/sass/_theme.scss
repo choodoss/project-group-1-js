@@ -1,0 +1,202 @@
+.theme-switch {
+  display: flex;
+  align-items: center;
+  order: 4;
+
+  @media screen and (max-width: 479px) {
+    margin-bottom: 90px;
+  }
+
+  @media screen and (min-width: 480px) {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 769px) {
+    margin-bottom: 10px;
+  }
+}
+
+.theme-switch__icon {
+  color: #ffffff;
+  height: 14px;
+  width: 14px;
+  transition: color 250ms linear;
+}
+
+.icon-sun {
+  margin-right: 4px;
+}
+
+.icon-moon {
+  margin-left: 4px;
+}
+
+.theme-switch__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 36px;
+  height: 14px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: #818181;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: #ffffff;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms linear;
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: #333;
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(20px);
+}
+
+.theme-switch__toggle:focus + .theme-switch__track,
+.theme-switch__toggle:active + .theme-switch__track {
+  box-shadow: 0 0 0 1px #1e1e1e;
+}
+
+body.light-theme {
+  background-color: #f5f5f5;
+  background-image: url(../images/img/white.jpg);
+
+  & .modal-body {
+    background: url(../images/img/white.jpg);
+  }
+}
+
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  background-image: url(../images/img/star.jpg);
+
+  & .footer {
+    background: linear-gradient(
+      180deg,
+      rgb(51, 51, 51),
+      rgb(156, 156, 156) 100%
+    );
+  }
+
+  & .footer-text {
+    color: rgb(51, 51, 51);
+  }
+
+  & .theme-switch__icon {
+    color: #111111;
+  }
+
+  & .film__name {
+    color: #ffffff;
+  }
+
+  & .tui-pagination .tui-page-btn {
+    color: #ffffff;
+  }
+
+  & .tui-ico-ellip {
+    fill: #ffffff;
+  }
+
+  & .tui-pagination .tui-ico-first,
+  .tui-pagination .tui-ico-last {
+    fill: #ffffff;
+  }
+
+  & .tui-pagination .hide-first,
+  .tui-pagination .hide-last {
+    background: rgba(247, 247, 247, 0.1);
+  }
+
+  & .tui-pagination .hide-first:hover,
+  & .tui-pagination .hide-last:hover {
+    background: #ff6b08;
+  }
+
+  & .popular-btn,
+  & .top-rated-btn,
+  & .upcoming-btn,
+  & .trending-tv-btn {
+    color: #ffffff;
+  }
+  & .spinner {
+    background: url(../images/img/star.jpg);
+    background: transparent;
+  }
+  & .page-header,
+  & .page-lib {
+    box-shadow: -1px 7px 33px 6px rgba(211, 211, 211, 0.1);
+  }
+
+  & .modal-body {
+    background: url(../images/img/star.jpg);
+  }
+
+  & .property,
+  & .value {
+    color: #ffffff;
+  }
+
+  & .add-to-watched,
+  & .add-to-queue {
+    color: #000;
+  }
+
+  & .add-to-watched:hover,
+  & .add-to-queue:hover,
+  & .add-to-watched:focus,
+  & .add-to-queue:focus {
+    color: #ffffff;
+    background-color: rgb(51, 51, 51);
+  }
+
+  & .youtube-link,
+  & .add-to-watched,
+  & .add-to-queue,
+  & .basicLightbox__placeholder,
+  & .modal-window__close-btn {
+    background-color: #c0c0c0;
+  }
+
+  & .modal-window__table-refs {
+    color: #696969;
+  }
+}
