@@ -27,29 +27,46 @@
                 id="registration-modal-open">
                 Sign up
             </button>
-            <ul class="header-nav__list-2 is-hidden">
-                <li class="header-nav__item">
-                    <button type="button" class="header-nav__title header-nav__title--watch button--watched"
-                        data-active="false" id="watched-btn">
-                        Watched
-                    </button>
-                </li>
-                <li class="header-nav__item">
-                    <button type="button" class="header-nav__title header-nav__title--queue button--queue"
-                        data-active="false" id="queue-btn">
-                        queue
-                    </button>
-                </li>
-            </ul>
-            <div class="switch-them is-opacity">
-                <div class="switch-body">
-                    <ul class="switch-line">
-                        <li class="switch-yellow" data-yellow></li>
-                        <li class="switch-red" data-red></li>
-                        <li class="switch-orange" data-orange></li>
-                    </ul>
+            <div class="theme-switch">
+                <svg class="theme-switch__icon icon-sun" role="img" aria-label="Sun icon">
+                    <use href="./images/svg/sprite.svg#icon-sun"></use>
+                </svg>
+
+                <div class="theme-switch__control">
+                    <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+                        aria-label="Switch between dark and light theme" />
+                    <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle"> </label>
+                    <div aria-hidden="true" class="theme-switch__marker"></div>
                 </div>
+
+                <svg class="theme-switch__icon icon-moon" aria-label="Moon icon">
+                    <use href="./images/svg/sprite.svg#icon-contrast"></use>
+                </svg>
             </div>
-        </nav>
+    </div>
+    <ul class="header-nav__list-2 is-hidden">
+        <li class="header-nav__item">
+            <button type="button" class="header-nav__title header-nav__title--watch button--watched" data-active="false"
+                id="watched-btn">
+                Watched
+            </button>
+        </li>
+        <li class="header-nav__item">
+            <button type="button" class="header-nav__title header-nav__title--queue button--queue" data-active="false"
+                id="queue-btn">
+                queue
+            </button>
+        </li>
+    </ul>
+    <div class="switch-them is-opacity">
+        <div class="switch-body">
+            <ul class="switch-line">
+                <li class="switch-yellow" data-yellow></li>
+                <li class="switch-red" data-red></li>
+                <li class="switch-orange" data-orange></li>
+            </ul>
+        </div>
+    </div>
+    </nav>
     </div>
 </header>
