@@ -127,26 +127,10 @@ $dark-blue: #2E3A57;
     background-color: #b83d3d;
   }
 }
-<<<<<<< Updated upstream
-  }
-=======
 
+}
 
-/* замінити стрілку на всіх посиланнях на кастомну */
 body {
   cursor: url('/src/images/fav/cursor.cur'), auto;
-  animation: pulse 60s infinite;
+  
 }
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
->>>>>>> Stashed changes
