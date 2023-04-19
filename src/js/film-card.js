@@ -46,11 +46,9 @@ export function filmCardMacker(arr) { //функція створення кар
                     const genreObj = genreArr.find(obj => obj.id === id);
                     return genreObj ? genreObj.name : '';
                 });
-            console.log(genres)
         } else {
             const genredata = item.genres;
             genres = genredata.map(gen => gen.name);
-            console.log(genres)
         }
         const genresAllforfilmAbout = genres.join(', ');
 

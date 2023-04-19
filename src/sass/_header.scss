@@ -151,9 +151,23 @@ header .container {
       background-color: $color--black;
     }
 
+
     @media screen and (min-width: 480px) {
       padding: 12px 20px;
     }
+
+    &--lib {
+        color: $color--black;
+        background-color: $color--white;
+        padding: 10px 26px;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            color: $color--white;
+            background-color: $color--black;
+        }
+
 
     @media screen and (min-width: 769px) {
       padding: 14px 24px;
@@ -186,10 +200,52 @@ header .container {
   }
 }
 
+
+
+.header-nav__title--registration {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    display: block;
+    padding: 10px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+
+    color: $color--black;
+    background-color: $color--white;
+    padding: 10px 26px;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        color: $color--white;
+        background-color: $color--black;
+    }
+
+    @media screen and (min-width: 480px) {
+        padding: 12px 24px;
+        top: 30%;
+        right: 75%;
+    }
+
+    @media screen and (min-width: 580px) {
+        top: 14px;
+        right: 14px;
+        padding: 12px 24px;
+    }
+
+    @media screen and (min-width: 769px) {
+        padding: 14px 32px;
+    }
+}
+
 .header-nav__title--active {
   color: $color--white;
   background-color: $color--black;
 }
+
 
 .header-nav__item {
   position: relative;
