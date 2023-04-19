@@ -63,10 +63,10 @@ export class DatabaseAPI {
       onAuthStateChanged(this.#AUTH, resolve)
     );
     if (!user) return;
-    console.log('getWatchedList')
+
     const userId = user.uid;
     const reference = ref(this.#DATABASE, `users_library/${userId}/watched/`);
-    console.log('getWatchedList')
+
     const snapshot = await get(reference);
     if (snapshot.exists) {
       const moviesObject = snapshot.val();
@@ -77,7 +77,7 @@ export class DatabaseAPI {
         console.log(moviesObject[key])
         return moviesObject[key] ? moviesObject[key] : [];
       });
-      console.log('getWatchedList')
+
       return moviesArray;
     }
   }
