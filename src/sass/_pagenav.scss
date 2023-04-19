@@ -139,6 +139,95 @@
     margin-left: 0
 }
 
+.page-arrow--right {
+    transform: scaleX(-1);
+}
+
+
+/*!
+ * TOAST UI Pagination
+ * @version 3.4.1
+ * @author NHN FE Development Team <dl_javascript@nhn.com>
+ * @license MIT
+ */
+@charset 'utf-8';
+
+.tui-pagination * {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tui-ico-ellipsis,
+.tui-ico-first,
+.tui-ico-last,
+.tui-ico-next,
+.tui-ico-prev {
+    overflow: hidden;
+}
+
+.tui-pagination {
+    font-weight: 500;
+    margin: 14px 0 12px;
+    line-height: normal;
+    text-align: center;
+    font-size: 0;
+
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 480px) {
+        padding: 60px 0;
+    }
+}
+
+.tui-pagination .tui-page-btn {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 13px 18px;
+    color: $color--black;
+    border-radius: 0.3125rem;
+
+    &:hover,
+    &:focus {
+        color: $color--white;
+        background-color: var(--var-color-primary);
+    }
+
+    margin-left: 0;
+    color: #333;
+    font-size: 12px;
+    line-height: 1;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.tui-pagination .tui-page-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+    color: #fff;
+    background-color: var(--var-color-primary);
+    cursor: default;
+}
+
+.tui-pagination .tui-is-selected:hover {
+    background-color: var(--var-color-primary);
+}
+
+.tui-pagination .tui-first-child.tui-is-selected,
+.tui-pagination strong.tui-first-child {
+    margin-left: 0
+}
+
 .tui-pagination .tui-first-child,
 .tui-pagination .tui-prev-is-ellip {
     border-left: 1px solid #ddd
@@ -291,5 +380,3 @@
     height: 12px;
     padding: 8px 0 6px;
     vertical-align: top
-
-}

@@ -9,16 +9,35 @@ const pagination = new Pagination('pagination', {
   itemsPerPage: 20,
   visiblePages: 7,
 
+
 });
 
 pagination.on('beforeMove', function (eventData) {
   getDataFilm(ApiRequest.popularFilm, {
     language: 'en-US',
     page: eventData.page,
-  }).then(({ results }) => {
-    console.log(results);
-    filmList.innerHTML = filmCardMacker(results);
-    currentCollection = 'topFilmsCollection';
-    return;
-  });
+  })
+    .then(({ results }) => {
+      filmList.innerHTML = filmCardMacker(results);
+      currentCollection = 'topFilmsCollection';
+      return;
+    });
 });
+pagination.on('beforeMove', function (eventData) {
+  getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(
+    ({ results }) => {
+      // запит по трендам + запит на вставку карток у films-list
+      console.log(results);
+      if (results.length === 0) {
+        clearTimeout(timeoutId)
+        messageErrorEll.classList.remove("visually-hidden");
+        return;
+      }
+      filmList.innerHTML = filmCardMacker(results);
+      currentCollection = 'currentSearchMovieCollection';
+      messageErrorEll.classList.add("visually-hidden");
+      return;
+    }
+  );
+});
+

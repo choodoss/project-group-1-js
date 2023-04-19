@@ -1,11 +1,12 @@
 $primary-color: #f44336;
 $secondary-color: #757575;
-$light-gray: #f2f2f2; 
-$dark-gray: #333333; 
-$light-blue: #8FB1CC; 
-$dark-blue: #2E3A57; 
+$light-gray: #f2f2f2;
+$dark-gray: #333333;
+$light-blue: #8FB1CC;
+$dark-blue: #2E3A57;
 
-.registration-modal,.SignIn-modal {
+.registration-modal,
+.SignIn-modal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -16,18 +17,23 @@ $dark-blue: #2E3A57;
   display: flex;
   align-items: center;
   justify-content: center;
+
   &.is-hidden {
     display: none;
   }
-  .registration-modal-background,.SignIn-modal-background {
-   
+
+  .registration-modal-background,
+  .SignIn-modal-background {
+
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    
+
   }
-  .registration-modal-content,.SignIn-modal-content {
+
+  .registration-modal-content,
+  .SignIn-modal-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -35,20 +41,24 @@ $dark-blue: #2E3A57;
     width: 100%;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     position: absolute;
+
     h2 {
-      color: $primary-color;
+      color: var(--var-color-primary);
       font-size: 24px;
       text-align: center;
       margin-bottom: 20px;
     }
+
     form {
       display: flex;
       flex-direction: column;
+
       label {
         color: $secondary-color;
         font-size: 16px;
         margin-bottom: 10px;
       }
+
       input[type="email"],
       input[type="password"] {
         padding: 1rem;
@@ -63,28 +73,35 @@ $dark-blue: #2E3A57;
         transition: background-size 0.3s ease-in-out;
         border-radius: 50px;
         margin-bottom: 20px;
-      
+
         &:focus {
           outline: none;
           background-size: 100% 2px;
         }
       }
+
       input[type="submit"] {
-        background-color: $primary-color;
+        background-color: var(--var-color-primary);
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 1.4rem;
         padding: 10px;
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s ease-in-out;
-        &:hover {
-          background-color: darken($primary-color, 10%);
+
+        &:hover,
+        &:focus {
+          outline: none;
+          color: $color--white;
+          background-color: $color--black;
         }
       }
     }
   }
-  .registration-modal-close, .SignIn-modal-close  {
+
+  .registration-modal-close,
+  .SignIn-modal-close {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
@@ -95,42 +112,57 @@ $dark-blue: #2E3A57;
     width: 2.5rem;
     height: 2.5rem;
     font-size: 2rem;
-  
+
     &:hover {
-      color: $primary-color;
+      color: var(--var-color-primary);
     }
-  
-}
-.sing-in{
-  text-align: center;
-    margin-top: 24px;
-    font-size: 16px;
-}
-.sing-in--div{
-  text-align: center;
-}
-.sing-in--btn{
-  text-align: center;
-  color: #000;
-  cursor: pointer;
-  background-color: #d627;
-  border: 1px solid #d62828;
-  border-radius: 4px;
-  margin-top: 10px;
-  padding: 7px 29px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  :hover {
-    border: 1px solid #b83d3d;
-    background-color: #b83d3d;
+
   }
-}
+
+  .sing-in {
+    text-align: center;
+    margin: 14px 0;
+    font-size: 16px;
+  }
 
 }
+
 
 /* замінити стрілку на всіх посиланнях на кастомну */
 body, a {
   cursor: url('/src/images/fav/cursor.cur'), auto;
 }
+
+
+  .sing-in--div {
+    text-align: center;
+  }
+
+  .sing-in--btn {
+
+    padding: 10px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+
+    color: $color--white;
+    background-color: var(--var-color-primary);
+    padding: 10px 26px;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $color--white;
+      background-color: $color--black;
+    }
+
+    @media screen and (min-width: 480px) {
+      padding: 12px 24px;
+    }
+
+    @media screen and (min-width: 769px) {
+      padding: 14px 32px;
+    }
+  }
+}
+

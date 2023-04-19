@@ -1,356 +1,410 @@
-<div id="modal" class="modal">
+<div id="modal" class="modal" team-modal>
+
     <div class="modal-content">
-        <div class="team-card">
+        <button type="button" class="close-modal" id="close-modal" team-modal-close>
+            <svg class="close__icon" height="30" width="30">
+                <use href="./images/svg/sprite.svg#icon-close"></use>
+            </svg>
+        </button>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Polina.jpg" alt="Polina Faustova">
+        <ul class="team__list list">
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Dmytro.jpg" alt="Dmytro Khomenko"
+                        width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Polina Faustova</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="https://www.linkedin.com/in/polina-faustova-17500317a/"
-                                target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://github.com/PolinaFaustova" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://www.facebook.com/polinamusikerincello" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Dmytro Khomenko</h3>
+                    <p class="team__job">Team-lead</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="https://www.linkedin.com/in/dmytro-khomenko-97b4b643"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/choodoss" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/dim4a" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Vitaly.jpg" alt="Vitaly Ovsiyenko">
+                </ul>
+            </li>
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Valeri.jpg" alt="Sizykh Valeri" width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Vitaly Ovsiyenko</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="https://www.linkedin.com/in/vitaly-ovsiyenko-01abaa177/"
-                                target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://github.com/VitaliyOvsiienko" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://www.facebook.com/vitaly.ovsiyenko/" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Sizykh Valeri</h3>
+                    <p class="team__job">Scrum master</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Anna.jpg" alt="Anna Shvabovska">
+                </ul>
+            </li>
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Polina.jpg" alt="Polina Faustova"
+                        width="170" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Anna Shvabovska</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://github.com/AShvab" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Polina Faustova</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="https://www.linkedin.com/in/polina-faustova-17500317a/"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/PolinaFaustova" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/polinamusikerincello" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Andriy.jpg" alt="Andriy Prysiazhnyi">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Vitaly.jpg" alt="Vitaly Ovsiyenko"
+                        width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Andriy Prysiazhnyi</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://github.com/particle-mid" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Vitaly Ovsiyenko</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="https://www.linkedin.com/in/vitaly-ovsiyenko-01abaa177/"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/VitaliyOvsiienko" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/vitaly.ovsiyenko" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Kyrylo.jpg" alt="Kirill Kutovuy">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Anna.jpg" alt="Anna Shvabovska" width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Kirill Kutovuy</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item"
-                                href="https://www.linkedin.com/in/%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%BE-%D0%BA%D1%83%D1%82%D0%BE%D0%B2%D0%B8%D0%B9-a42667256/"
-                                target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="https://github.com/Kirill99k" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Anna Shvabovska</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/AShvab" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Valeri.jpg" alt="Sizykh Valeri">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Andriy.jpg" alt="Andriy Prysiazhnyi"
+                        width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Sizykh Valeri</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Andriy Prysiazhnyi</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/particle-mid" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/team/team-photo/Nataliia.jpg" alt="Nataliia Lashko">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Kyrylo.jpg" alt="Kirill Kutovuy" width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">Nataliia Lashko</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Kirill Kutovuy</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/Kirill99k" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/img/Rectangle 12.jpg" alt="Person 1">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Dariya.jpg" alt="Darya Zaloga" width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">John Doe</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Darya Zaloga</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/ZalogaD" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/Kosenko.Dari" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/img/Rectangle 12.jpg" alt="Person 1">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Nataliia.jpg" alt="Nataliia Lashko"
+                        width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">John Doe</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Nataliia Lashko</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/natalialashko" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/natasha.lashko" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/img/Rectangle 12.jpg" alt="Person 1">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Danyil.jpg" alt="Danyil Shevelenko"
+                        width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">John Doe</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Danyil Shevelenko</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/Danyashe" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://www.facebook.com/profile.php?id=100002121126994"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/img/Rectangle 12.jpg" alt="Person 1">
+                </ul>
+            </li>
+
+            <li class="team__item">
+                <div class="team__thumb">
+                    <img class="team__img" src="./images/team/team-photo/Vadym.jpeg" alt="Vadym Bevz" width="250" />
                 </div>
-                <div class="card-info">
-                    <h3 class="card-name">John Doe</h3>
-
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="team__container">
+                    <h3 class="team__title">Vadym Bevz</h3>
+                    <p class="team__job">Frontend developer</p>
                 </div>
-            </div>
+                <ul class="social-links">
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="https://github.com/VadymBevz" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
+                            <svg class="social-item-link" width="32" height="32">
+                                <use href="./images/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
 
-            <div class="card">
-                <div class="card-img">
-                    <img src="./images/img/Rectangle 12.jpg" alt="Person 1">
-                </div>
-                <div class="card-info">
-                    <h3 class="card-name">John Doe</h3>
+                </ul>
+            </li>
 
-                    <ul class="social-links">
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/linkedin.svg" alt="icon linkedin">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/github.svg" alt="icon github">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="social-item" href="#" target="_blank" rel="noopener noreferrer">
-                                <img src="./images/team/team-social/facebook.svg" alt="icon facebook">
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <button id="close-modal" class="close-modal">Close</button>
+        </ul>
     </div>
 </div>

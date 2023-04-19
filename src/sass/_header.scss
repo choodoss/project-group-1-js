@@ -31,6 +31,7 @@ header .container {
 .logo {
     position: absolute;
     left: 50%;
+    display: block;
     transform: translateX(-50%);
     bottom: 74px;
     color: $color--white;
@@ -94,15 +95,18 @@ header .container {
 .header-nav__list-2 {
     display: flex;
     justify-content: center;
-    column-gap: 4px;
+
 
     @media screen and (min-width: 480px) {
+        justify-content: flex-end;
+        margin-bottom: 8px;
         margin-top: 40px;
     }
 
     @media screen and (min-width: 769px) {
         margin-top: 40px;
         column-gap: 30px;
+        margin-bottom: 0px;
     }
 
     &.is-hidden {
@@ -144,6 +148,7 @@ header .container {
 
         &:hover,
         &:focus {
+            outline: none;
             color: $color--white;
             background-color: $color--black;
         }
@@ -184,10 +189,52 @@ header .container {
     }
 }
 
+
+
+.header-nav__title--registration {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    display: block;
+    padding: 10px 22px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 6.25rem;
+
+    color: $color--black;
+    background-color: $color--white;
+    padding: 10px 26px;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        color: $color--white;
+        background-color: $color--black;
+    }
+
+    @media screen and (min-width: 480px) {
+        padding: 12px 24px;
+        top: 30%;
+        right: 75%;
+    }
+
+    @media screen and (min-width: 580px) {
+        top: 14px;
+        right: 14px;
+        padding: 12px 24px;
+    }
+
+    @media screen and (min-width: 769px) {
+        padding: 14px 32px;
+    }
+}
+
 .header-nav__title--active {
     color: $color--white;
     background-color: $color--black;
 }
+
 
 .header-nav__item {
     position: relative;
@@ -274,12 +321,16 @@ header .container {
     position: absolute;
     top: 40%;
     right: 20px;
-    zoom: 150%;
+    zoom: 130%;
 
     @media screen and (min-width: 480px) {
         top: 30%;
         right: 30px;
-        zoom: 100%;
+        zoom: 80%;
+    }
+
+    &.is-opacity {
+        opacity: 0%;
     }
 }
 
