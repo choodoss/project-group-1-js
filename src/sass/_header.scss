@@ -31,6 +31,7 @@ header .container {
 .logo {
     position: absolute;
     left: 50%;
+    display: block;
     transform: translateX(-50%);
     bottom: 74px;
     color: $color--white;
@@ -94,16 +95,18 @@ header .container {
 .header-nav__list-2 {
     display: flex;
     justify-content: center;
-    column-gap: 4px;
+
 
     @media screen and (min-width: 480px) {
         justify-content: flex-end;
+        margin-bottom: 8px;
         margin-top: 40px;
     }
 
     @media screen and (min-width: 769px) {
         margin-top: 40px;
         column-gap: 30px;
+        margin-bottom: 0px;
     }
 
     &.is-hidden {
