@@ -1,6 +1,6 @@
 .modal {
   display: none;
-  position:fixed;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -8,7 +8,6 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  
 }
 
 .modal-content {
@@ -18,8 +17,8 @@
   border: 1px solid #888;
   width: 80%;
   text-align: center;
-position: relative;
-border-radius: 20px;
+  position: relative;
+  border-radius: 20px;
 
   @media screen and (min-width: 768px) {
     width: 68%;
@@ -46,11 +45,10 @@ border-radius: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: color 250ms ease-in-out, background-color 250ms ease-in-out, ;
+  transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
   &:hover {
-      color: $color--white;
-      background-color: var(--var-color-primary);
-
+    color: $color--white;
+    background-color: var(--var-color-primary);
   }
 }
 .close__icon {
@@ -69,14 +67,13 @@ border-radius: 20px;
   max-width: 420px;
   background-color: white;
   padding: 50px 10px;
-  
 
-  @media screen and (min-width:768px){
-      max-width: 650px;
+  @media screen and (min-width: 768px) {
+    max-width: 650px;
   }
 
-  @media screen and (min-width:1280px) {
-   max-width: 800px;
+  @media screen and (min-width: 1280px) {
+    max-width: 800px;
   }
 }
 
@@ -90,9 +87,9 @@ border-radius: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 
- @media screen and (min-width:768px){
-  flex-direction: row;
- }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .team__item {
@@ -108,16 +105,16 @@ border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 
-  @media screen and (min-width:768px) {
-      flex-basis: calc((100% - 30px) / 2);
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 30px) / 2);
   }
 
-  @media screen and (min-width:1280px) {
-      flex-basis: calc((100% - 60px) / 3);
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc((100% - 60px) / 3);
   }
 }
 
-.team__item:hover{
+.team__item:hover {
   transform: scale(1.02);
   filter: brightness(120%);
 }
@@ -141,7 +138,6 @@ border-radius: 20px;
   padding-bottom: 15px;
 }
 
-
 .social-links {
   display: flex;
   align-items: center;
@@ -150,28 +146,32 @@ border-radius: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
- 
 }
 
 .social-links li {
   display: inline-block;
   margin-right: 10px;
 }
-.social-item-link{
+.social-item-link {
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-  
 }
 .social-item {
   display: block;
   width: 30px;
   height: 30px;
-  color:var(--var-color-primary);
+  color: var(--var-color-primary);
 }
 
-
-.social-item-link:hover{
+.social-item-link:hover {
   transform: scale(1.5);
-  fill:currentColor;
- 
+  fill: currentColor;
 }
 
+.team__title {
+  font-size: 16;
+}
+.team__job {
+  font-size: 16;
+  margin-top: 10px;
+  font-weight: 100;
+}
