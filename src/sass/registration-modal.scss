@@ -125,6 +125,15 @@ $dark-blue: #2E3A57;
     font-size: 16px;
   }
 
+}
+
+
+/* замінити стрілку на всіх посиланнях на кастомну */
+body, a {
+  cursor: url('/src/images/fav/cursor.cur'), auto;
+}
+
+
   .sing-in--div {
     text-align: center;
   }
@@ -156,3 +165,4 @@ $dark-blue: #2E3A57;
     }
   }
 }
+

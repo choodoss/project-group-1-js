@@ -18,8 +18,9 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     btnRegistration.addEventListener('click', logOut)
     const signUp = document.querySelector('.button--signin')
-    btnRegistration.textContent = 'sign out'; // Зміна надпису на кнопці реєстрації
-    btnRegistration.classList.add('header-nav__title--active') // додавання класу на кнопку реєстрації
+    // btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
+    // btnRegistration.classList.remove('header-nav__title--active') // додавання класу на кнопку реєстрації
+
   } else {
     console.log('nope uid')
   }
