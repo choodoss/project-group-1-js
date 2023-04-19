@@ -5,7 +5,7 @@ import { forWatched, forQueue } from './library'
 import { doc } from 'firebase/firestore';
 const btnRegistration = document.querySelector('#registration-modal-open')
 const DatabaseAPIstorage = new DatabaseAPI;
-console.log(btnRegistration)
+
 const libRef = document.querySelector('.header-nav__title--lib');
 
 let watchedBtn;
@@ -32,6 +32,8 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
       console.log(btnRegistration)
       const watchedList = await DatabaseAPIstorage.getWatchedList();
       const queuedList = await DatabaseAPIstorage.getQueueList();
+      console.log(watchedList)
+      console.log(queuedList)
       if (watchedList.includes(id)) {
         watchedTextBt = 'remove at Watched';
       }
@@ -40,7 +42,7 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
       }
       disabladBtn = '';
     }
-
+    console.log(disabladBtn)
     // const localStorageDataWatch = JSON.parse(localStorage.getItem("watchedID"))
     // const localStorageDataQueue = JSON.parse(localStorage.getItem("queueId"))
 
