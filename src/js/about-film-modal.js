@@ -40,7 +40,7 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
       }
       disabladBtn = '';
     }
-
+    console.log(disabladBtn)
     // const localStorageDataWatch = JSON.parse(localStorage.getItem("watchedID"))
     // const localStorageDataQueue = JSON.parse(localStorage.getItem("queueId"))
 
