@@ -4,7 +4,7 @@ document.addEventListener(
   'DOMContentLoaded',
   function (e) {
     e.preventDefault();
-    const modals = ['data-modal', 'team-modal', 'data-registaration'];
+    const modals = ['data-modal', 'team-modal', 'data-registaration', 'data-signin'];
 
     modals.forEach(element => {
       const openModalSelector = element + '-open';

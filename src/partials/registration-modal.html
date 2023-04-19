@@ -16,18 +16,17 @@
     </form>
     <div class="sing-in--div">
       <p class="sing-in">Or just sing in!</p>
-      <button class="sing-in--btn">Sing In</button>
+      <button data-signin-open class="sing-in--btn">Sing In</button>
     </div>
 
   </div>
 </div>
 
-
-<div id="SignIn-modal" class="SignIn-modal is-hidden">
+<div id="SignIn-modal" class="SignIn-modal is-hidden" data-signin>
   <div class="SignIn-modal-background"></div>
   <div class="SignIn-modal-content">
     <h2>Sign In</h2>
-    <button data-registaration-close class="SignIn-modal-close">
+    <button data-signin-close class="SignIn-modal-close">
       <span aria-hidden="true">&times;</span>
     </button>
     <form class="SignIn-modal-submit">
