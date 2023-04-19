@@ -15,10 +15,10 @@ let activePageCollection = 1; // номер активної сторінки п
 let querySearch = ''; // параметр для пошуку
 
 getDataFilm(ApiRequest.popularFilm, { language: 'en-US' }).then(
-  ({ results }) => {
+  res => {
     // запит по трендам + запит на вставку карток у films-list
-    console.log(results);
-    filmList.innerHTML = filmCardMacker(results);
+    console.log(res);
+    filmList.innerHTML = filmCardMacker(res.results);
     currentCollection = 'topFilmsCollection';
     return;
   }
