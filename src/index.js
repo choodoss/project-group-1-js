@@ -1,0 +1,16 @@
+import "./js/modal.js";
+import "./js/getDataFilm.js";
+import "./js/film-card.js";
+import "./js/library.js";
+import "./js/startFetch.js";
+import "./js/about-film-modal.js";
+import "./js/spinner.js";
+import "./js/localStorageAPI.js";
+import "./js/switch-them.js";
+import "./js/team-modal.js";
+import "./js/upward.js";
+import "./js/registration-modal.js";
+import "./js/Firebase-registration.js";
+import "./js/Firebase-storage.js";
+import "./videotube/videotube.min.js";
+import "./js/theme.js";
