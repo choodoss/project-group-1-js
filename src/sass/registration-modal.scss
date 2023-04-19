@@ -130,7 +130,7 @@ $dark-blue: #2E3A57;
 
 }
 
-body {
+/* замінити стрілку на всіх посиланнях на кастомну */
+body, a {
   cursor: url('/src/images/fav/cursor.cur'), auto;
-  
 }
