@@ -129,40 +129,39 @@ $dark-blue: #2E3A57;
 
 
 /* замінити стрілку на всіх посиланнях на кастомну */
-body, a {
+body,
+a {
   cursor: url('/src/images/fav/cursor.cur'), auto;
 }
 
 
-  .sing-in--div {
-    text-align: center;
-  }
-
-  .sing-in--btn {
-
-    padding: 10px 22px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 6.25rem;
-
-    color: $color--white;
-    background-color: var(--var-color-primary);
-    padding: 10px 26px;
-
-    &:hover,
-    &:focus {
-      outline: none;
-      color: $color--white;
-      background-color: $color--black;
-    }
-
-    @media screen and (min-width: 480px) {
-      padding: 12px 24px;
-    }
-
-    @media screen and (min-width: 769px) {
-      padding: 14px 32px;
-    }
-  }
+.sing-in--div {
+  text-align: center;
 }
 
+.sing-in--btn {
+
+  padding: 10px 22px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 6.25rem;
+
+  color: $color--white;
+  background-color: var(--var-color-primary);
+  padding: 10px 26px;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    color: $color--white;
+    background-color: $color--black;
+  }
+
+  @media screen and (min-width: 480px) {
+    padding: 12px 24px;
+  }
+
+  @media screen and (min-width: 769px) {
+    padding: 14px 32px;
+  }
+}
