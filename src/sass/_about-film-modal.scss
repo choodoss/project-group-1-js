@@ -225,16 +225,24 @@
 }
 
 .youtube-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  @media screen and (min-width: 769px) {
+    gap: 7px;
+  }
 }
 
 .youtube-link {
   display: block;
-  padding: 10px 22px;
+  padding: 10px 15px;
   text-align: center;
   text-transform: uppercase;
   border-radius: 6.25rem;
-  color: $color--black;
-  background-color: $color--white;
+  color: rgb(183, 233, 17);
+  background-color: rgb(4, 4, 82);
 }
 
 
