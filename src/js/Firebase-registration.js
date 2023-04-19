@@ -18,7 +18,7 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     btnRegistration.addEventListener('click', logOut)
     const signUp = document.querySelector('.button--signin')
-    // btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
+    btnRegistration.textContent = 'sign in'; // Зміна надпису на кнопці реєстрації
     btnRegistration.classList.add('header-nav__title--active') // додавання класу на кнопку реєстрації
 
   } else {
@@ -42,6 +42,7 @@ function signUp(e) {
         window.location.href = '#'
         e.target.reset();
       })
+      btnRegistration.textContent = 'sign out';
   }
 
   catch (error) {
@@ -68,6 +69,7 @@ function logIn(e) {
       console.log('yeap you are here')
       e.target.reset();
       singModal.classList.add('is-hidden')
+      btnRegistration.textContent = 'sign out';
     })
     .catch((error) => {
       const errorCode = error.code;
