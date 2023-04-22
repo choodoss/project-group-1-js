@@ -48,8 +48,46 @@
 // .page-arrow--right {
 //     transform: scaleX(-1);
 // }
+//------------------------------------------------------------------------------
+.pagination__my {
+    display: flex;
+    justify-content: center
+ 
+}
 
+.pagination__my__list {
+   display: flex;
+   list-style-type: none;
+}
 
+.pagination__item_show,
+.pagination__my__left__item,
+.pagination__my__right__item {
+    padding: 8px;
+    margin: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+// .pagination__my__item--active {
+//     font-weight: 800;
+//     color: #b1ad36;
+// }
+.pagination__my .active {
+    font-weight: 800;
+    background-color: var(--var-color-primary);
+    color: $color--white;
+    border-radius: 5px;
+}
+
+.pagination__my li:hover:not(.active),
+.pagination__my__left__item:hover,
+.pagination__my__right__item:hover {
+    font-weight: 800;
+    background-color: var(--var-color-primary);
+    color: $color--white;
+    border-radius: 5px;
+}
+// -----------------------------------------------------------------------------
 .tui-pagination * {
     -moz-user-select: none;
     -webkit-user-select: none;
