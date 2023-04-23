@@ -18,8 +18,10 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
   .then(res => {
 
     filmList.innerHTML = filmCardMacker(res.results);
+     pageCount = res.total_pages;
+    console.log('pageCount-----', res.total_pages)
     currentCollection = 'topFilmsCollection';
-    return;
+    return pageCount;
   }
   );
 
@@ -61,7 +63,7 @@ inputSearchEll.addEventListener('input', function () {
 
 //При переході на кожну сторінку малювати відповідну частину фільмів
 
-const activePagePaginationEll = document.querySelector('.page--active'); // посилання на активну сторінку пагінації
+const activePagePaginationEll = document.querySelector('.active'); // посилання на активну сторінку пагінації
 
 activePageCollection = Number(activePagePaginationEll.textContent);
 
