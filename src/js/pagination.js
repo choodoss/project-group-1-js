@@ -41,38 +41,33 @@ const filmList = document.querySelector('.films-list');
 //   );
 // });
 // __________________________________________________________________
-const totalItems = 35; //загальна кількість елементів колекції
+const totalItems = 37960; //загальна кількість  елементів колекції
 let currentpage = 1; // активна сторінка по дефолту
 let notesOnPage = 20; //кількість елементів колекції на одній сторінці
 let startP = 1; // номер початкової сторінки при відображенні пагінації
-let endP = totalItems; // номер останньої сторінки при відображенні пагінації
+let pageCount; // в api total_pages
 
 
-
-
-const pageCount = Math.ceil(500 / notesOnPage);// кількість сторінок 
-console.log(' pageCount', pageCount);
-
-
-function displayPagination(startP, endP) {
+function displayPagination(startP, pageCount ) {
   const pagination_myEll = document.querySelector('.pagination__my');
   console.log(pagination_myEll);
  
   console.log('start рендер пагінації', startP);
   
-  if ((startP + 10) > totalItems ) {
-    endP = totalItems
+  if ((startP + 10) > pageCount ) {
+    endP = pageCount
   } else { endP = startP + 9 };
   
   const ulEl = document.createElement('ul');
   ulEl.classList.add('pagination__my__list');
 
-  for (let i = startP-1; i <= totalItems+1; i++) {
+  for (let i = startP-1; i <=  pageCount+1; i++) {
     const liEll = displayPaginationBtn(i, startP);
     ulEl.appendChild(liEll)
   }
   pagination_myEll.appendChild(ulEl)
 }
+//--------------------------------------------------
 function displayPaginationBtn(page, start) {
   const liEll = document.createElement("li");
   // console.log(page);
@@ -80,7 +75,7 @@ function displayPaginationBtn(page, start) {
   liEll.classList.add('pagination__my__left__item');
   liEll.innerText = "<";
   } else {
-   if (page === totalItems+1) {
+   if (page ===  pageCount+1) {
      liEll.classList.add('pagination__my__right__item');
   liEll.innerText = ">";
    } else {
@@ -106,8 +101,7 @@ if (liEll.classList.contains('pagination__my__left__item') && start > 0) {
 }
      return start
     }
-      
-  
+        
     // показ колекції
 
 getDataFilm(ApiRequest.popularFilm, {
@@ -131,24 +125,22 @@ getDataFilm(ApiRequest.popularFilm, {
   })
   return liEll
   }
-
-displayPagination(startP, endP);
-const activeLiLeftEll = document.querySelector('.pagination__my__left__item'); 
+function goPagination() {
+  const activeLiLeftEll = document.querySelector('.pagination__my__left__item'); 
 console.log(activeLiLeftEll);
 activeLiLeftEll.addEventListener('click', function (e) {
-  console.log('старт----start', startP);
-  
 
-    return;
+  return;
 })
   // кнопка право
 const activeLiRightEll = document.querySelector('.pagination__my__right__item'); 
 console.log(activeLiRightEll);
+
 activeLiRightEll.addEventListener('click', function (e) {
-  console.log('старт----end', startP, '---');
+  
   let newStart = startP + 10;
-  console.log('старт----new', newStart, '---');
-  if (startP + 10 > totalItems) { return }
+ 
+  if (startP + 10 > pageCount) { return }
   else{
      const ulPaginationEll = document.querySelector('.pagination__my__list ');
  
@@ -161,7 +153,7 @@ activeLiRightEll.addEventListener('click', function (e) {
   
   }
   startP = startP + 10;
-  if (newStart+10 > totalItems) {
+  if (newStart+10 >  pageCount) {
     for (let i = startP; i <= totalItems; i++) {
     
   liEll[i].classList.remove('visually-hidden');
@@ -196,32 +188,44 @@ const ulPaginationEll = document.querySelector('.pagination__my__list ');
  const liEll = ulPaginationEll.querySelectorAll('li');
  
  console.log('старт----home', startP,'----',startP+10);
-  if (startP + 10 > totalItems) {
-    for (let i = startP; i <= totalItems; i++) {
+  if (startP + 10 > totalItems) 
+    for (let i = startP; i <=  pageCount; i++) {
       console.log(liEll[i]);
       liEll[i].classList.remove('pagination__item_show');
       liEll[i].classList.add('visually-hidden')
     }
-  } else {
-    
-
-    
+   else        
     for (let i = startP; i < startP + 10; i++) {
       console.log(liEll[i]);
       liEll[i].classList.remove('pagination__item_show');
       liEll[i].classList.add('visually-hidden')
   
     }
-  }
+  
     startP = startP - 10;
-    console.log('-------888888------', startP)
-    for (let i = startP; i < startP + 10; i++) {
+ 
+  for (let i = startP; i < startP + 10; i++)
+  {
       console.log(liEll[i]);
       liEll[i].classList.remove('visually-hidden');
-      liEll[i].classList.add('pagination__item_show')
-  
-    
+    liEll[i].classList.add('pagination__item_show')
   }
     return;
 })
+}
+//-----------------------------------------------------------------------------------
 
+getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
+  .then(res => {
+
+    filmList.innerHTML = filmCardMacker(res.results);
+    pageCount = res.total_pages;
+    if (pageCount > 1000) pageCount = 1000
+    console.log('pageCount     -----', res.total_pages)
+    console.log('pageCount     -----', pageCount)
+    currentCollection = 'topFilmsCollection';
+    displayPagination(startP, pageCount);
+    goPagination()
+  return
+  }
+  );
