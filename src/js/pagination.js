@@ -48,7 +48,8 @@ let startP = 1; // номер початкової сторінки при ві�
 let pageCount; // в api total_pages
 
 
-function displayPagination(startP, pageCount ) {
+function displayPagination(startP, pageCount) {
+  startP = 1; 
   const pagination_myEll = document.querySelector('.pagination__my');
   console.log(pagination_myEll);
  
@@ -103,8 +104,24 @@ if (liEll.classList.contains('pagination__my__left__item') && start > 0) {
     }
         
     // показ колекції
+    const ulColectionEll = document.querySelector('.films-list');
+    console.log(ulColectionEll);
 
-getDataFilm(ApiRequest.popularFilm, {
+    if (ulColectionEll.classList.contains('currentSearchMovieCollection')) {
+      const inputSearchEll = document.querySelector('.header-nav__input');
+      const querySearch = inputSearchEll.value.trim();
+      console.log('querySearch++++',querySearch)
+      getDataFilm(ApiRequest.searchMovie, {
+        query: querySearch,
+        page: currentpage,
+      }).then(({ results }) => {
+        // запит по трендам + запит на вставку карток у films-list
+        console.log(results);
+        filmList.innerHTML = filmCardMacker(results);
+        return;
+      });
+    } else {
+      getDataFilm(ApiRequest.popularFilm, {
         language: 'en-US',
         page: currentpage,
       }).then(({ results }) => {
@@ -114,6 +131,8 @@ getDataFilm(ApiRequest.popularFilm, {
         filmList.innerHTML = filmCardMacker(results);
         return;
       });
+    }
+
 
 
     let currentItemLi = document.querySelector('li.active');
