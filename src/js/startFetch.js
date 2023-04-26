@@ -3,6 +3,8 @@ import { filmCardMacker } from './film-card';
 const filmList = document.querySelector('.films-list'); // галерея карток з фільмами
 import ApiRequest from './ApiRequest';
 import { Notify } from 'notiflix';
+import { displayPagination } from './pagination';
+import { goPagination } from './pagination';
 
 
 // currentCollection:
@@ -18,16 +20,15 @@ getDataFilm(ApiRequest.popularFilm, { language: 'en-US' })
   .then(res => {
 
     filmList.innerHTML = filmCardMacker(res.results);
-     pageCount = res.total_pages;
-    console.log('pageCount-----', res.total_pages)
-    currentCollection = 'topFilmsCollection';
-    return pageCount;
+   
+    
+    return 
   }
   );
 
 const inputSearchEll = document.querySelector('.header-nav__input'); // посилання на інпут для вводу ключового слова для пошуку
 
-const messageErrorEll = document.querySelector('.header-error-text'); // посилання абзац з повідомленням щодо невдалого пошуку
+const messageErrorEll = document.querySelector('.header-error-text'); // посилання на абзац з повідомленням щодо невдалого пошуку
 
 let timeoutId;
 inputSearchEll.addEventListener('input', function () {
@@ -42,7 +43,7 @@ inputSearchEll.addEventListener('input', function () {
     }
 
     getDataFilm(ApiRequest.searchMovie, { query: querySearch }).then(
-      ({ results }) => {
+      ({ total_pages, results }) => {
         // запит по трендам + запит на вставку карток у films-list
         console.log(results);
         if (results.length === 0) {
@@ -50,10 +51,17 @@ inputSearchEll.addEventListener('input', function () {
           messageErrorEll.classList.remove("visually-hidden");
           return;
         }
+        filmList.classList.add('currentSearchMovieCollection')
         filmList.innerHTML = filmCardMacker(results);
-        currentCollection = 'currentSearchMovieCollection';
+    
         messageErrorEll.classList.add("visually-hidden");
-        return;
+         pageCount = total_pages;
+    if (pageCount > 1000) pageCount = 1000
+    console.log('pageCount     -----++', total_pages)
+    console.log('pageCount     -----++', pageCount)
+        displayPagination(1, pageCount);
+        goPagination(1, pageCount)
+        return ;
       }
     );
 
@@ -63,40 +71,40 @@ inputSearchEll.addEventListener('input', function () {
 
 //При переході на кожну сторінку малювати відповідну частину фільмів
 
-const activePagePaginationEll = document.querySelector('.active'); // посилання на активну сторінку пагінації
+// const activePagePaginationEll = document.querySelector('.active'); // посилання на активну сторінку пагінації
+// console.log(activePagePaginationEll);
+// // activePageCollection = Number(activePagePaginationEll.textContent);
 
-activePageCollection = Number(activePagePaginationEll.textContent);
+// activePagePaginationEll.addEventListener('click', function (e) {
+//   switch (currentCollection) {
+//     case 'topFilmsCollection':
+//       getDataFilm(ApiRequest.popularFilm, {
+//         language: 'en-US',
+//         page: activePageCollection,
+//       }).then(({ results }) => {
+//         // запит по трендам + запит на вставку карток у films-list
+//         console.log(results);
 
-activePagePaginationEll.addEventListener('click', function (e) {
-  switch (currentCollection) {
-    case 'topFilmsCollection':
-      getDataFilm(ApiRequest.popularFilm, {
-        language: 'en-US',
-        page: activePageCollection,
-      }).then(({ results }) => {
-        // запит по трендам + запит на вставку карток у films-list
-        console.log(results);
+//         filmList.innerHTML = filmCardMacker(results);
+//         return;
+//       });
+//       break;
+//     case 'currentSearchMovieCollection':
+//       getDataFilm(ApiRequest.searchMovie, {
+//         query: querySearch,
+//         page: activePageCollection,
+//       }).then(({ results }) => {
+//         // запит по трендам + запит на вставку карток у films-list
+//         console.log(results);
+//         filmList.innerHTML = filmCardMacker(results);
+//         return;
+//       });
+//       break;
 
-        filmList.innerHTML = filmCardMacker(results);
-        return;
-      });
-      break;
-    case 'currentSearchMovieCollection':
-      getDataFilm(ApiRequest.searchMovie, {
-        query: querySearch,
-        page: activePageCollection,
-      }).then(({ results }) => {
-        // запит по трендам + запит на вставку карток у films-list
-        console.log(results);
-        filmList.innerHTML = filmCardMacker(results);
-        return;
-      });
-      break;
-
-    default:
-      console.log('Упс, щось пішло не так');
-      break;
-  }
-});
+//     default:
+//       console.log('Упс, щось пішло не так');
+//       break;
+//   }
+// });
 
 

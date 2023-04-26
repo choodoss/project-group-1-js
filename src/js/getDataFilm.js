@@ -24,7 +24,7 @@ export function getDataFilm(param, searchParam = {}) { //функція запи
         })
 };
 
-export async function getDataFilmTrailer(param, searchParam = {}) { //функція запиту карток по параметру посилання і параметру
+export function getDataFilmTrailer(param, searchParam = {}) { //функція запиту карток по параметру посилання і параметру
     spinner.enable(); //Увімкнути спіннер
     const parameters = new URLSearchParams({
         api_key: API_KEY,
