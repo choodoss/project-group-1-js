@@ -51,7 +51,8 @@ const amountPage = 10;
 
  export function displayPagination(startP, pageCount) {
  
-  const pagination_myEll = document.querySelector('.pagination__my');
+   const pagination_myEll = document.querySelector('.pagination__my');
+   let endP = pageCount;
   console.log(pagination_myEll);
    pagination_myEll.innerHTML = "";
    currentpage = 1;
