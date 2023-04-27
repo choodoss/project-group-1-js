@@ -51,7 +51,8 @@ const amountPage = 10;
 
  export function displayPagination(startP, pageCount) {
  
-  const pagination_myEll = document.querySelector('.pagination__my');
+   const pagination_myEll = document.querySelector('.pagination__my');
+ 
   console.log(pagination_myEll);
    pagination_myEll.innerHTML = "";
    currentpage = 1;
@@ -60,10 +61,6 @@ const amountPage = 10;
     startP = 1; 
     currentpage = 1;
   }
-  // console.log( startP)
-  if ((startP + amountPage) > pageCount ) {
-    endP = pageCount
-  } else { endP = startP + amountPage };
   
   const ulEl = document.createElement('ul');
   ulEl.classList.add('pagination__my__list');

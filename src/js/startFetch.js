@@ -69,42 +69,5 @@ inputSearchEll.addEventListener('input', function () {
   }, 1500);
 });
 
-//При переході на кожну сторінку малювати відповідну частину фільмів
-
-// const activePagePaginationEll = document.querySelector('.active'); // посилання на активну сторінку пагінації
-// console.log(activePagePaginationEll);
-// // activePageCollection = Number(activePagePaginationEll.textContent);
-
-// activePagePaginationEll.addEventListener('click', function (e) {
-//   switch (currentCollection) {
-//     case 'topFilmsCollection':
-//       getDataFilm(ApiRequest.popularFilm, {
-//         language: 'en-US',
-//         page: activePageCollection,
-//       }).then(({ results }) => {
-//         // запит по трендам + запит на вставку карток у films-list
-//         console.log(results);
-
-//         filmList.innerHTML = filmCardMacker(results);
-//         return;
-//       });
-//       break;
-//     case 'currentSearchMovieCollection':
-//       getDataFilm(ApiRequest.searchMovie, {
-//         query: querySearch,
-//         page: activePageCollection,
-//       }).then(({ results }) => {
-//         // запит по трендам + запит на вставку карток у films-list
-//         console.log(results);
-//         filmList.innerHTML = filmCardMacker(results);
-//         return;
-//       });
-//       break;
-
-//     default:
-//       console.log('Упс, щось пішло не так');
-//       break;
-//   }
-// });
 
 
