@@ -78,9 +78,20 @@ export function filmCardMacker(arr) { //функція створення кар
             <div class="film-body">
                 <p class="film__name">${item.title ? item.title : item.name}</p>
                 <p class="film__description">${genreString} | ${item.release_date ? item.release_date.slice(0, 4) : 'TBD'}</p>
-            </div>
+                <span class="${getColor(item.vote_average)}">${item.vote_average.toFixed(1)}</span> 
+                </div>
     </a>
 </li>`
     }
     ).join('')
+}
+
+function getColor(vote) {
+    if(vote>= 8){
+        return 'green'
+    }else if(vote >= 5){
+        return "blue"
+    }else{
+        return 'red'
+    }
 }
