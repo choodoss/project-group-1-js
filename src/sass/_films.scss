@@ -30,6 +30,7 @@
 }
 
 .film-link {
+  position: relative;
   color: inherit;
   transition: box-shadow 250ms ease-in-out, transform 250ms ease-in-out,
     filter 250ms ease-in-out;
@@ -70,12 +71,13 @@
   }
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 }
 
 .film-body {
   font-size: 0.875rem;
+ 
 
   @media screen and (min-width: 800px) {
     font-size: 1.25rem;
@@ -90,4 +92,31 @@
 
 .film__description {
   color: var(--var-color-primary);
+}
+
+.film-body span{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--var-color-primary);
+  border-radius: 50%;
+  font-weight: bold; 
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  scale: inherit;
+}
+
+.film-body span.green{
+  color:rgb(3, 88, 3);
+}
+
+.film-body span.blue{
+  color:rgb(2, 2, 148);
+}
+
+.film-body span.red{
+  color:rgb(237, 8, 8);
 }
