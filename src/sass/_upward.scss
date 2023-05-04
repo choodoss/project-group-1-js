@@ -18,7 +18,7 @@
     pointer-events: none;
 
     &:hover {
-        border: 1px solid #000;
+        border: 1px solid var(--var-color-primary);
         color: var(--var-color-primary);
         background-color: #fff;
         scale: 1.2;
@@ -30,7 +30,6 @@
     visibility: visible;
     opacity: 1;
     z-index: 999;
-    pointer-events: none;
     pointer-events: all;
     color: #fff;
 }
@@ -41,6 +40,4 @@
     left: 50%;
     transform: translate(-50%, -50%);
     fill: currentColor;
-    ;
-    // fill: #ffffff;
 }

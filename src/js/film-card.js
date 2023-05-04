@@ -78,6 +78,7 @@ export function filmCardMacker(arr) { //функція створення кар
             <div class="film-body">
                 <p class="film__name">${item.title ? item.title : item.name}</p>
                 <p class="film__description">${genreString} | ${item.release_date ? item.release_date.slice(0, 4) : 'TBD'}</p>
+                <button class="film-trailer__button" type="button" data-id="${item.id}">Trailer</button>
                 <span class="${getColor(item.vote_average)}">${item.vote_average.toFixed(1)}</span> 
                 </div>
     </a>
