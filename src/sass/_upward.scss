@@ -18,7 +18,7 @@
     pointer-events: none;
 
     &:hover {
-        border: 1px solid #000;
+        border: 2px solid var(--var-color-primary);
         color: var(--var-color-primary);
         background-color: #fff;
         scale: 1.2;
