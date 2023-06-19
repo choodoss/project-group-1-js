@@ -25,15 +25,13 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
     let queueTextBt;
     const { overview } = await getDataFilm(`${ApiRequest.movieDetails}${id}`, { language: 'en-US' });
     const videos = await getDataFilm(`${ApiRequest.movieDetails}${id}/videos`, { language: 'en-US' });
+
     const trailer = `https://www.youtube.com/watch?v=${videos.results[0].key}`;
 
     let disabladBtn = 'disabled';
     if (btnRegistration.classList.contains('header-nav__title--active')) {
-      console.log(btnRegistration)
       const watchedList = await DatabaseAPIstorage.getWatchedList();
       const queuedList = await DatabaseAPIstorage.getQueueList();
-      console.log(watchedList)
-      console.log(queuedList)
       if (watchedList.includes(id)) {
         watchedTextBt = 'remove at Watched';
       }
@@ -42,7 +40,6 @@ export async function cardFilmMacker({ id, poster, genres, title, original, popu
       }
       disabladBtn = '';
     }
-    console.log(disabladBtn)
     // const localStorageDataWatch = JSON.parse(localStorage.getItem("watchedID"))
     // const localStorageDataQueue = JSON.parse(localStorage.getItem("queueId"))
 
